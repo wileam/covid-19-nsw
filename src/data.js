@@ -16,7 +16,7 @@ export const nswData = [
 export const summaryData = {
   updated: '10pm 8 March, 2020',
   totalConfirmed: 40,
-  remain: 36,
+  remain: 34,
   today: 4,
   death: 2,
   recovered: 4,
