@@ -15,5 +15,6 @@ deploy:
   github-token: $GITHUB_TOKEN
   keep-history: true
   local_dir: build
+  fqdn: covid-19.wileam.com
   on:
     branch: master
