@@ -6,31 +6,32 @@ import './index.scss';
 export const Summary = () => {
   const {
     updated,
-    total,
+    totalConfirmed,
     remain,
     recovered,
     death,
     wip,
-    excluded
+    excluded,
+    totalTested
   } = summaryData;
   return (
     <div className='summary'>
-      <h2 className='ui small header'>Summary Data(updated {updated}):</h2>
+      <h2 className='ui small header'>Summary data(updated {updated}):</h2>
       <Grid columns={4}>
         <Grid.Column>
-          <Statistic color='blue' label='Remain Cases' value={remain} />
+          <Statistic color='blue' label='Remain' value={remain} />
         </Grid.Column>
         <Grid.Column>
-          <Statistic label='Total Cases' value={total} />
+          <Statistic label='Total' value={totalConfirmed} />
         </Grid.Column>
         <Grid.Column>
-          <Statistic color='grey' label='Death Cases' value={death} />
+          <Statistic color='grey' label='Death' value={death} />
         </Grid.Column>
         <Grid.Column>
-          <Statistic color='green' label='Recover Cases' value={recovered} />
+          <Statistic color='green' label='Recover' value={recovered} />
         </Grid.Column>
       </Grid>
-      <Table unstackable>
+      <Table unstackable compact>
         <Table.Body>
           <Table.Row>
             <Table.Cell>Cases under investigation</Table.Cell>
@@ -41,6 +42,12 @@ export const Summary = () => {
             <Table.Cell>{excluded}</Table.Cell>
           </Table.Row>
         </Table.Body>
+        <Table.Footer>
+          <Table.Row>
+            <Table.HeaderCell>Total tested</Table.HeaderCell>
+            <Table.HeaderCell>{totalTested}</Table.HeaderCell>
+          </Table.Row>
+        </Table.Footer>
       </Table>
     </div>
   );

@@ -15,12 +15,12 @@ export const nswData = [
 
 export const summaryData = {
   updated: '10pm 8 March, 2020',
-  total: 40,
+  totalConfirmed: 40,
   remain: 34,
   today: 4,
   death: 2,
   recovered: 4,
   wip: 576,
   excluded: 7361,
-  tested: 8008
+  totalTested: 8008
 };

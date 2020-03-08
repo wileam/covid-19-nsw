@@ -8,7 +8,9 @@ import './App.scss';
 function App() {
   return (
     <div className='ui container'>
-      <h1 className='ui header'>NSW CoVid-19 data</h1>
+      <header>
+        <h1 className='ui header'>CoVid-19 Updates - NSW</h1>
+      </header>
       <Summary />
       <Divider />
       <Chart />
