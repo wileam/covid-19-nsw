@@ -3,6 +3,18 @@ body {
   font-size: 12px;
 }
 
+header {
+  height: 5rem;
+  padding-top: 2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  background: url(./covid-19b_SMALL.png) center;
+  background-size: cover;
+  h1 {
+    margin-left: 1rem !important;
+  }
+}
+
 footer {
   text-align: center;
   padding: 1rem;
