@@ -11,7 +11,7 @@ export const dailyData = [
   ['March 6, 2020', 3, 28, 0],
   ['March 7, 2020', 8, 36, 0],
   ['March 8, 2020', 4, 40, 1],
-  ['March 9, 2020', 6, 46, 1]
+  ['March 9, 2020', 6, 46, 0]
 ];
 
 export const stastics = [
@@ -23,12 +23,12 @@ export const stastics = [
 
 const today = dailyData[dailyData.length - 1][1];
 const totalConfirmed = dailyData[dailyData.length - 1][2];
+const death = dailyData.map(data => data[3]).reduce((a, b) => a + b);
 // eslint-disable-next-line
 const [_1, _2, wip, excluded, totalTested] = stastics[stastics.length - 1];
 
 // Please manually updating the following data:
 const updated = 'March 9, 2020 12:00:00';
-const death = 2;
 const recovered = 4;
 
 const remain = totalConfirmed - death - recovered;

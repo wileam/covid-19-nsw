@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import { DailyConfirmedChart } from './DailyConfirmedChart';
-import { StasticsChart } from './StasticsChart';
+import { StatisticsChart } from './StatisticsChart';
 
-const SHOW_STASTICS = localStorage.getItem('SHOW_STASTICS') || false;
+const SHOW_STATISTICS = localStorage.getItem('SHOW_STATISTICS') || false;
 
 export const Chart = () => (
   <>
@@ -13,9 +13,9 @@ export const Chart = () => (
         <DailyConfirmedChart />
       </Grid.Column>
 
-      {SHOW_STASTICS && (
+      {SHOW_STATISTICS && (
         <Grid.Column>
-          <StasticsChart />
+          <StatisticsChart />
         </Grid.Column>
       )}
     </Grid>

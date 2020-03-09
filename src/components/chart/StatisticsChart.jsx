@@ -51,7 +51,7 @@ const getOptions = data => {
   };
 };
 
-export const StasticsChart = () => (
+export const StatisticsChart = () => (
   <>
     <ReactEcharts option={getOptions(stasticsData)} />
   </>
