@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, List, Header } from 'semantic-ui-react';
+import { Modal, List, Header, Divider } from 'semantic-ui-react';
 
 export const FooterModal = () => (
   <Modal
@@ -25,6 +25,8 @@ export const FooterModal = () => (
           </List.Item>
         </List>
       </Modal.Description>
+
+      <Divider />
 
       <Modal.Description>
         <Header>Thanks to</Header>
