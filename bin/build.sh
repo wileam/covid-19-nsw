@@ -2,6 +2,6 @@
 
 cp ./src/dateTime.tpl ./src/dateTime.current
 
-echo $(TZ=-11 date +"'%B %d, %y %T';") >> ./src/dateTime.current
+echo $(TZ=Australia/Sydney date +"'%B %d, %Y %T';") >> ./src/dateTime.current
 
 mv ./src/dateTime.current ./src/dateTime.js
