@@ -29,7 +29,7 @@ const death = dailyData.map(data => data[3]).reduce((a, b) => a + b);
 const [_1, _2, wip, excluded, totalTested] = stastics[stastics.length - 1];
 
 // Please manually updating the following data:
-const updated = 'March 9, 2020 12:00:00';
+const updated = 'March 9, 2020 16:32:00';
 const recovered = 4;
 
 const remain = totalConfirmed - death - recovered;
