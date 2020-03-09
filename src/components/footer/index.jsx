@@ -1,12 +1,20 @@
 import React from 'react';
 import { Modal, List, Header, Divider } from 'semantic-ui-react';
 
+export const Footer = () => (
+  <p>
+    <small>
+      Made by <FooterModal />, {}
+    </small>
+  </p>
+);
+
 export const FooterModal = () => (
   <Modal
     trigger={
       // eslint-disable-next-line
       <a href='#' onClick={e => e.preventDefault()}>
-        Friends
+        Joanna and her friends
       </a>
     }
   >

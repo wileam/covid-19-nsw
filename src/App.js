@@ -1,5 +1,5 @@
 import React from 'react';
-import { Summary, Chart, DetailTable, FooterModal } from './components';
+import { Summary, Chart, DetailTable, Footer } from './components';
 import { Divider } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css';
@@ -18,15 +18,7 @@ function App() {
       <DetailTable />
 
       <footer>
-        <p>
-          <small>
-            Made by <a href='http://wileam.com/'>Joanna Wu</a> and{' '}
-            <FooterModal />, data source:{' '}
-            <a href='https://www.health.nsw.gov.au/Infectious/diseases/Pages/coronavirus.aspx'>
-              NSW Health
-            </a>
-          </small>
-        </p>
+        <Footer />
       </footer>
     </div>
   );
