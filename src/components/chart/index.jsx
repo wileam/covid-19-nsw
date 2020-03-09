@@ -1,40 +1,23 @@
 import React from 'react';
-import ReactEcharts from 'echarts-for-react';
-import { nswData } from '../../data';
+import { Grid } from 'semantic-ui-react';
+import { DailyConfirmedChart } from './DailyConfirmedChart';
+import { StasticsChart } from './StasticsChart';
 
-const chartData = {
-  todayData: nswData.map(([date, today]) => [new Date(date), today]),
-  totalData: nswData.map(([date, _today, total]) => [new Date(date), total]),
-  deathData: nswData.map(([date, _today, _total, death]) => [
-    new Date(date),
-    death
-  ])
-};
+const SHOW_STASTICS = localStorage.getItem('SHOW_STASTICS') || false;
 
-const getOptions = data => {
-  return {
-    legend: {
-      show: true
-    },
-    tooltip: {
-      show: true
-    },
-    xAxis: {
-      type: 'time'
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series: [
-      {
-        type: 'line',
-        name: 'total confirmed cases',
-        data: data.totalData
-      },
-      { type: 'bar', name: 'new cases on the day', data: data.todayData },
-      { type: 'bar', name: 'new death cases', data: data.deathData }
-    ]
-  };
-};
+export const Chart = () => (
+  <>
+    <h2 className='ui small header'>Trending:</h2>
+    <Grid columns='equal' stackable>
+      <Grid.Column>
+        <DailyConfirmedChart />
+      </Grid.Column>
 
-export const Chart = () => <ReactEcharts option={getOptions(chartData)} />;
+      {SHOW_STASTICS && (
+        <Grid.Column>
+          <StasticsChart />
+        </Grid.Column>
+      )}
+    </Grid>
+  </>
+);

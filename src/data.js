@@ -1,5 +1,5 @@
 // date, new today, total confirmed, total death
-export const nswData = [
+export const dailyData = [
   // ['January 24, 2020', 0, 0, 0],
   // ['January 25, 2020', 3, 3, 0],
   // ['January 27, 2020', 1, 4, 0],
@@ -10,17 +10,37 @@ export const nswData = [
   ['March 5, 2020', 8, 25, 0],
   ['March 6, 2020', 3, 28, 0],
   ['March 7, 2020', 8, 36, 0],
-  ['March 8, 2020', 4, 40, 1]
+  ['March 8, 2020', 4, 40, 1],
+  ['March 9, 2020', 6, 46, 1]
 ];
 
+export const stastics = [
+  ['March 7, 2020 09:00:00', 34, 545, 6217, 6796],
+  ['March 7, 2020 21:00:00', 36, 488, 6690, 7214],
+  ['March 8, 2020 09:00:00', 38, 488, 6690, 7216],
+  ['March 8, 2020 21:00:00', 40, 576, 7361, 8008]
+];
+
+const today = dailyData[dailyData.length - 1][1];
+const totalConfirmed = dailyData[dailyData.length - 1][2];
+// eslint-disable-next-line
+const [_1, _2, wip, excluded, totalTested] = stastics[stastics.length - 1];
+
+// Please manually updating the following data:
+const updated = 'March 9, 2020 12:00:00';
+const death = 2;
+const recovered = 4;
+
+const remain = totalConfirmed - death - recovered;
+
 export const summaryData = {
-  updated: '10pm 8 March, 2020',
-  totalConfirmed: 40,
-  remain: 34,
-  today: 4,
-  death: 2,
-  recovered: 4,
-  wip: 576,
-  excluded: 7361,
-  totalTested: 8008
+  updated,
+  totalConfirmed,
+  remain,
+  today,
+  death,
+  recovered,
+  wip,
+  excluded,
+  totalTested
 };
