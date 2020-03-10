@@ -37,6 +37,22 @@ const recovered = 4;
 
 const remain = totalConfirmed - death - recovered;
 
+
+// ploymomial regression prediction, assume the model to be y = ax^2 + bx + c
+function predictTotalResult(nextDay) {
+  const regA = 0.27652
+  const regB = 2.6
+  const regC = 3.95
+  return (regA * nextDay * nextDay) + (regB * nextDay) + regC
+}
+const nextDay = 11
+const nextFiveDays = 15
+const nextTenDays = 20
+
+const predictNextDay = predictTotalResult(nextDay)
+const predictNextFiveDays = predictTotalResult(nextFiveDays)
+const predictNextTenDays = predictTotalResult(nextTenDays)
+
 export const summaryData = {
   totalConfirmed,
   remain,
@@ -45,5 +61,8 @@ export const summaryData = {
   recovered,
   wip,
   excluded,
-  totalTested
+  totalTested,
+  predictNextDay,
+  predictNextFiveDays,
+  predictNextTenDays
 };
