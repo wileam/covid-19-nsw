@@ -21,7 +21,7 @@ export const AuthorModal = () => (
           <p>
             We need more people to keep the data updated!! Please join telegram{' '}
             {''}
-            <a href='https://t.me/covid-19-au'>@covid-19-au</a> if you wanna
+            <a href='https://t.me/covid_19_au'>@covid_19_au</a> if you wanna
             help, what we need is simply: when you saw data updated, notify in
             the group with the source link, thank you!
           </p>
