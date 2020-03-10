@@ -36,7 +36,15 @@ const getOptions = data => {
       type: 'time'
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
+      axisLabel: {
+        formatter: value => {
+          if (value >= 1000) {
+            return `${value / 1000}k`;
+          }
+          return value;
+        }
+      }
     },
     series: [
       {

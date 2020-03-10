@@ -5,7 +5,6 @@ import './index.scss';
 
 export const Summary = () => {
   const {
-    updated,
     totalConfirmed,
     remain,
     recovered,
@@ -16,7 +15,7 @@ export const Summary = () => {
   } = summaryData;
   return (
     <div className='summary'>
-      <h2 className='ui small header'>Summary data (updated {updated} AEDT):</h2>
+      <h2 className='ui small header'>Summary data:</h2>
       <Grid columns={4}>
         <Grid.Column>
           <Statistic color='blue' label='Remain' value={remain} />

@@ -4,14 +4,18 @@ body {
 }
 
 header {
-  height: 5rem;
-  padding-top: 2rem;
+  height: 8rem;
+  padding-top: 3rem;
   margin-left: -1rem;
   margin-right: -1rem;
   background: url(./covid-19b_SMALL.png) center;
   background-size: cover;
-  h1 {
+  h1,
+  small {
     margin-left: 1rem !important;
+  }
+  h1 {
+    margin-bottom: 0 !important;
   }
 }
 

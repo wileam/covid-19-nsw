@@ -1,5 +1,3 @@
-import { updateTime } from './dateTime.js';
-
 // date, new today, total confirmed, total death
 export const dailyData = [
   // ['January 24, 2020', 0, 0, 0],
@@ -27,7 +25,6 @@ export const stastics = [
   ['March 10, 2020 09:00:00', 55, 618, 8361, 9034]
 ];
 
-const updated = updateTime;
 const today = dailyData[dailyData.length - 1][1];
 const totalConfirmed = dailyData[dailyData.length - 1][2];
 const death = dailyData.map(data => data[3]).reduce((a, b) => a + b);
@@ -40,7 +37,6 @@ const recovered = 4;
 const remain = totalConfirmed - death - recovered;
 
 export const summaryData = {
-  updated,
   totalConfirmed,
   remain,
   today,
