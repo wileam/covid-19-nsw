@@ -1,9 +1,17 @@
 import React from 'react';
+import Disqus from 'disqus-react';
 import { Summary, Chart, DetailTable, Footer } from './components';
 import { Divider } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
+
+const disqusShortname = 'covid-19-wileam-com';
+const disqusConfig = {
+  url: 'https://covid-19.wileam.com/',
+  identifier: 'covid-19-wileam-com',
+  title: 'CoVid-19 Updates - NSW'
+};
 
 function App() {
   return (
@@ -16,6 +24,11 @@ function App() {
       <Chart />
       <Divider />
       <DetailTable />
+
+      <Disqus.DiscussionEmbed
+        shortname={disqusShortname}
+        config={disqusConfig}
+      />
 
       <footer>
         <Footer />
