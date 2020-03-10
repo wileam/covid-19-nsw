@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react';
 import { DailyConfirmedChart } from './DailyConfirmedChart';
 import { StatisticsChart } from './StatisticsChart';
 
-const SHOW_STATISTICS = localStorage.getItem('SHOW_STATISTICS') || false;
+const SHOW_STATISTICS = true;
 
 export const Chart = () => (
   <>
