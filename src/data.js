@@ -12,7 +12,7 @@ export const dailyData = [
   ['March 7, 2020', 8, 36, 0],
   ['March 8, 2020', 4, 40, 1],
   ['March 9, 2020', 7, 47, 0],
-  ['March 10, 2020', 8, 55, 0]
+  ['March 10, 2020', 14, 61, 0]
 ];
 
 // date, total confirmed, total wip, total excluded, total tested
@@ -22,7 +22,8 @@ export const stastics = [
   ['March 8, 2020 09:00:00', 38, 488, 6690, 7216],
   ['March 8, 2020 21:00:00', 40, 576, 7361, 7977], // nsw health said total tested is 8008, however that seems a mistake, I updated with the calculation total
   ['March 9, 2020 16:32:00', 47, 476, 7848, 8371],
-  ['March 10, 2020 09:00:00', 55, 618, 8361, 9034]
+  ['March 10, 2020 07:00:00', 55, 618, 8361, 9034],
+  ['March 10, 2020 21:00:00', 61, 1008, 9096, 10165]
 ];
 
 const today = dailyData[dailyData.length - 1][1];
