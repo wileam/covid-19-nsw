@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, List, Header, Divider } from 'semantic-ui-react';
+import { Modal } from 'semantic-ui-react';
 
 export const ContributeModal = () => (
   <Modal
