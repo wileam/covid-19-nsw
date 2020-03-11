@@ -13,19 +13,6 @@ export const AuthorModal = () => (
     <Modal.Header>Team and Thanks</Modal.Header>
     <Modal.Content>
       <Modal.Description>
-        <Header>Help wanted!</Header>
-        <Modal.Description>
-          <p>
-            Now as there is no api provided, all the data are manually updated.
-          </p>
-          <p>
-            We need more people to keep the data updated!! Please join telegram{' '}
-            {''}
-            <a href='https://t.me/covid_19_au'>@covid_19_au</a> if you wanna
-            help, what we need is simply: when you saw data updated, notify in
-            the group with the source link, thank you!
-          </p>
-        </Modal.Description>
         <Header>Team member</Header>
         <List bulleted>
           <List.Item>
@@ -36,6 +23,14 @@ export const AuthorModal = () => (
             <a href='https://ngot.me/'>Henry Zhuang</a>: devops and update the
             data
           </List.Item>
+          <List.Item>
+            Ivan(Yifan) Fu: developer, add regression prediction functionality
+          </List.Item>
+          <List.Item>
+            <a href='https://www.sydneytoday.com/'>Sydney Today</a>: media,
+            provide updated data from NSW Health
+          </List.Item>
+          <List.Item>Nan Zhang, update and analysis the data.</List.Item>
         </List>
 
         <Header>Thanks to</Header>
