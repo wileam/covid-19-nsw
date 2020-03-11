@@ -10,7 +10,7 @@ export const AuthorModal = () => (
       </a>
     }
   >
-    <Modal.Header>Team and Thanks</Modal.Header>
+    <Modal.Header>Team, Thanks and Disclaimer</Modal.Header>
     <Modal.Content>
       <Modal.Description>
         <Header>Team member</Header>
@@ -40,6 +40,15 @@ export const AuthorModal = () => (
           </List.Item>
           <List.Item>
             <a href='https://airtable.com/'>airtable</a>
+          </List.Item>
+        </List>
+        <Header>Disclaimer</Header>
+        <List bulleted>
+          <List.Item>
+          The views and options expressed in this blog are those of the authors and do not necessarily reflect the official policy or position of any other agency, organization, employer or company
+          </List.Item>
+          <List.Item>
+          Authors are not responsible for any errors or omissions, or for the results obtained from the use of this information. All information in this site is provided "as is", with no guarantee of completeness, accuracy, timeliness or of the results obtained from the use of this information
           </List.Item>
         </List>
       </Modal.Description>
