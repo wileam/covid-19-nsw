@@ -24,7 +24,7 @@ export const AuthorModal = () => (
             data
           </List.Item>
           <List.Item>
-            Ivan(Yifan) Fu: developer, add regression prediction functionality
+            <a href='https://ivanfan.net/'>Ivan(Yifan) Fan</a>: developer, add regression prediction functionality
           </List.Item>
           <List.Item>
             <a href='https://www.sydneytoday.com/'>Sydney Today</a>: media,
