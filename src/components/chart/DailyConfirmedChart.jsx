@@ -5,7 +5,7 @@ import { dailyData, predictedData } from '../../data';
 const dailyChartData = {
   todayData: dailyData.map(([date, today]) => [new Date(date), today]),
   totalData: dailyData.map(([date, _today, total]) => [new Date(date), total]),
-  predictData: predictedData.map(([date, predictedTotal]) => [new Date(date), predictedTotal]),
+  predictData: predictedData.map(([date, predictedTotal]) => [new Date(date), Math.round(predictedTotal)]),
   deathData: dailyData.map(([date, _today, _total, death]) => [
     new Date(date),
     death
