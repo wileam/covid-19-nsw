@@ -6,7 +6,7 @@ export const AuthorModal = () => (
     trigger={
       // eslint-disable-next-line
       <a href='#' onClick={e => e.preventDefault()}>
-        Joanna and her friends
+        Joanna and her friends (Disclaimer)
       </a>
     }
   >
