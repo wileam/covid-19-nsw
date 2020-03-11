@@ -13,7 +13,8 @@ export const dailyData = [
   ['March 8, 2020', 4, 40, 1],
   ['March 9, 2020', 7, 47, 0],
   ['March 10, 2020', 14, 61, 0],
-  ['March 11, 2020', 4, 65, 0]
+  ['March 11, 2020', 4, 65, 0],
+  ['March 12, 2020', 12, 77, 0]
 ];
 
 // date, total confirmed, total wip, total excluded, total tested
