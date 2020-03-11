@@ -20,12 +20,10 @@ const getOptions = data => {
     legend: {
       show: true,
       selected: {
-        // selected'series 1'
-        'total confirmed cases': true,
-        // unselected'series 2'
-        'predicted total confirmed cases': false,
-        'new cases on the day': true,
-        'new death cases': true
+        total: true,
+        'predicted total': false,
+        'new cases on the day': true
+        // 'new death cases': true
       }
     },
     tooltip: {
@@ -40,12 +38,12 @@ const getOptions = data => {
     series: [
       {
         type: 'line',
-        name: 'total confirmed cases',
+        name: 'total',
         data: data.totalData
       },
       {
         type: 'line',
-        name: 'predicted total confirmed cases',
+        name: 'predicted total',
         data: data.predictData,
         smooth: false,
         itemStyle: {
@@ -57,8 +55,8 @@ const getOptions = data => {
           }
         }
       },
-      { type: 'bar', name: 'new cases on the day', data: data.todayData },
-      { type: 'bar', name: 'new death cases', data: data.deathData }
+      { type: 'bar', name: 'new cases on the day', data: data.todayData }
+      // { type: 'bar', name: 'new death cases', data: data.deathData }
     ]
   };
 };
