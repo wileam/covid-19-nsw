@@ -10,6 +10,7 @@ export const Summary = () => {
     recovered,
     death,
     wip,
+    today,
     excluded,
     totalTested
   } = summaryData;
@@ -32,6 +33,10 @@ export const Summary = () => {
       </Grid>
       <Table unstackable compact>
         <Table.Body>
+          <Table.Row negative>
+            <Table.Cell>New cases today</Table.Cell>
+            <Table.Cell>{today}</Table.Cell>
+          </Table.Row>
           <Table.Row>
             <Table.Cell>Cases under investigation</Table.Cell>
             <Table.Cell>{wip}</Table.Cell>
