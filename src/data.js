@@ -75,11 +75,12 @@ for (let curDay = 0; curDay < dailyData.length; curDay++) {
   predictedData.push([curDayName, curPredictResult]);
 }
 // predict next 3 days
-const tomorrowDate = new Date(dailyData[-1][0]);
+const lastIndex = dailyData.length -1;
+const tomorrowDate = new Date(dailyData[lastIndex][0]);
 tomorrowDate.setDate(tomorrowDate.getDate() + 1);
-const nextTowDate = new Date(dailyData[-1][0]);
+const nextTowDate = new Date(dailyData[lastIndex][0]);
 nextTowDate.setDate(nextTowDate.getDate() + 2);
-const nextThreeDate = new Date(dailyData[-1][0]);
+const nextThreeDate = new Date(dailyData[lastIndex][0]);
 nextThreeDate.setDate(nextThreeDate.getDate() + 3);
 
 predictedData.push([tomorrowDate.toDateString(), predictTotalResult(dailyData.length + 1)]);
