@@ -33,7 +33,7 @@ export const Summary = () => {
       </Grid>
       <Table unstackable compact>
         <Table.Body>
-          <Table.Row className='new-cases'>
+          <Table.Row negative>
             <Table.Cell>New cases today</Table.Cell>
             <Table.Cell>{today}</Table.Cell>
           </Table.Row>
