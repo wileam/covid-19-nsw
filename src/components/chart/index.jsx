@@ -2,8 +2,7 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import { DailyConfirmedChart } from './DailyConfirmedChart';
 import { StatisticsChart } from './StatisticsChart';
-
-const SHOW_STATISTICS = true;
+import { SourcePieChart } from './SourcePieChart';
 
 export const Chart = () => (
   <>
@@ -13,11 +12,13 @@ export const Chart = () => (
         <DailyConfirmedChart />
       </Grid.Column>
 
-      {SHOW_STATISTICS && (
-        <Grid.Column>
-          <StatisticsChart />
-        </Grid.Column>
-      )}
+      <Grid.Column>
+        <SourcePieChart />
+      </Grid.Column>
+
+      <Grid.Column>
+        <StatisticsChart />
+      </Grid.Column>
     </Grid>
   </>
 );

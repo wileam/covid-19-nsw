@@ -28,6 +28,25 @@ export const stastics = [
   ['March 11, 2020 13:00:00', 65, 1004, 9152, 10221]
 ];
 
+export const sourceData = [
+  {
+    name: 'overseas',
+    value: 34
+  },
+  {
+    name: 'contact of confirmed case',
+    value: 32
+  },
+  {
+    name: 'under investigation',
+    value: 10
+  },
+  {
+    name: 'not identified',
+    value: 2
+  }
+];
+
 const today = dailyData[dailyData.length - 1][1];
 const totalConfirmed = dailyData[dailyData.length - 1][2];
 const death = dailyData.map(data => data[3]).reduce((a, b) => a + b);
@@ -48,15 +67,14 @@ function predictTotalResult(nextDay) {
 }
 
 export let predictedData = [];
-for (let curDay = 0; curDay < dailyData.length; curDay++ ) {
+for (let curDay = 0; curDay < dailyData.length; curDay++) {
   let curDayName = dailyData[curDay][0];
-  let curPredictResult = predictTotalResult(curDay+1)
-  predictedData.push([curDayName, curPredictResult])
-} 
-predictedData.push(['March 12, 2020', predictTotalResult(12)])
-predictedData.push(['March 13, 2020', predictTotalResult(13)])
-predictedData.push(['March 14, 2020', predictTotalResult(14)])
-
+  let curPredictResult = predictTotalResult(curDay + 1);
+  predictedData.push([curDayName, curPredictResult]);
+}
+predictedData.push(['March 12, 2020', predictTotalResult(12)]);
+predictedData.push(['March 13, 2020', predictTotalResult(13)]);
+predictedData.push(['March 14, 2020', predictTotalResult(14)]);
 
 export const summaryData = {
   totalConfirmed,
@@ -66,5 +84,5 @@ export const summaryData = {
   recovered,
   wip,
   excluded,
-  totalTested,
+  totalTested
 };

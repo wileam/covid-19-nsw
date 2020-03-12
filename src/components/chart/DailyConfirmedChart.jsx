@@ -39,7 +39,14 @@ const getOptions = data => {
       {
         type: 'line',
         name: 'total',
-        data: data.totalData
+        data: data.totalData,
+        itemStyle: {
+          normal: {
+            label: {
+              show: true
+            }
+          }
+        }
       },
       {
         type: 'line',
@@ -48,6 +55,10 @@ const getOptions = data => {
         smooth: false,
         itemStyle: {
           normal: {
+            label: {
+              show: true,
+              position: 'right'
+            },
             lineStyle: {
               width: 2,
               type: 'dotted' //'dotted'虚线 'solid'实线
@@ -55,7 +66,19 @@ const getOptions = data => {
           }
         }
       },
-      { type: 'bar', name: 'new cases on the day', data: data.todayData }
+      {
+        type: 'bar',
+        name: 'new cases on the day',
+        data: data.todayData,
+        itemStyle: {
+          normal: {
+            label: {
+              show: true,
+              position: 'top'
+            }
+          }
+        }
+      }
       // { type: 'bar', name: 'new death cases', data: data.deathData }
     ]
   };
