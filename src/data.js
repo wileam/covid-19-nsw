@@ -14,7 +14,7 @@ export const dailyData = [
   ['March 9, 2020', 7, 47, 0],
   ['March 10, 2020', 14, 61, 0],
   ['March 11, 2020', 4, 65, 0],
-  ['March 12, 2020', 12, 77, 0]
+  ['March 12, 2020', 13, 78, 0]
 ];
 
 // date, total confirmed, total wip, total excluded, total tested
@@ -26,7 +26,8 @@ export const stastics = [
   ['March 9, 2020 16:32:00', 47, 476, 7848, 8371],
   ['March 10, 2020 07:00:00', 55, 618, 8361, 9034],
   ['March 10, 2020 21:00:00', 61, 1008, 9096, 10165],
-  ['March 11, 2020 13:00:00', 65, 1004, 9152, 10221]
+  ['March 11, 2020 13:00:00', 65, 1004, 9152, 10221],
+  ['March 12, 2020 13:00:00', 78, 1831, 11040, 14856]
 ];
 
 const today = dailyData[dailyData.length - 1][1];
