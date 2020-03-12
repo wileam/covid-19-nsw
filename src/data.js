@@ -27,7 +27,7 @@ export const stastics = [
   ['March 10, 2020 07:00:00', 55, 618, 8361, 9034],
   ['March 10, 2020 21:00:00', 61, 1008, 9096, 10165],
   ['March 11, 2020 13:00:00', 65, 1004, 9152, 10221],
-  ['March 12, 2020 13:00:00', 78, 1831, 11040, 14856]
+  ['March 12, 2020 13:00:00', 78, 1831, 11040, 12949] // nsw health said total tested is 14856, which is off the calculated total by 1907, corrected with calculation
 ];
 
 export const sourceData = [
