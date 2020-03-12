@@ -62,21 +62,29 @@ const remain = totalConfirmed - death - recovered;
 
 // ploymomial regression prediction, assume the model to be y = ax^2 + bx + c
 function predictTotalResult(nextDay) {
-  const regA = 0.25874;
-  const regB = 2.76783;
-  const regC = 3.6727;
+  const regA = 0.2942;
+  const regB = 2.462;
+  const regC = 4.2273;
   return regA * nextDay * nextDay + regB * nextDay + regC;
 }
-
+// generate predicted data
 export let predictedData = [];
 for (let curDay = 0; curDay < dailyData.length; curDay++) {
   let curDayName = dailyData[curDay][0];
   let curPredictResult = predictTotalResult(curDay + 1);
   predictedData.push([curDayName, curPredictResult]);
 }
-predictedData.push(['March 12, 2020', predictTotalResult(12)]);
-predictedData.push(['March 13, 2020', predictTotalResult(13)]);
-predictedData.push(['March 14, 2020', predictTotalResult(14)]);
+// predict next 3 days
+const tomorrowDate = new Date(dailyData[-1][0]);
+tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+const nextTowDate = new Date(dailyData[-1][0]);
+nextTowDate.setDate(nextTowDate.getDate() + 2);
+const nextThreeDate = new Date(dailyData[-1][0]);
+nextThreeDate.setDate(nextThreeDate.getDate() + 3);
+
+predictedData.push([tomorrowDate.toDateString(), predictTotalResult(dailyData.length + 1)]);
+predictedData.push([nextTowDate.toDateString(), predictTotalResult(dailyData.length + 2)]);
+predictedData.push([nextThreeDate.toDateString(), predictTotalResult(dailyData.length + 3)]);
 
 export const summaryData = {
   totalConfirmed,
