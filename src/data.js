@@ -81,7 +81,7 @@ function predictTotalResultWithPR(nextDay) {
 // generate predicted data
 export let predictedData = [];
 
-function addPredictionData(predictedData, predictTotalResult) {
+function addPredictionData(dailyData, predictedData, predictTotalResult) {
   for (let curDay = 0; curDay < dailyData.length; curDay++) {
     let curDayName = dailyData[curDay][0];
     let curPredictResult = predictTotalResult(curDay + 1);
@@ -102,7 +102,7 @@ function addPredictionData(predictedData, predictTotalResult) {
 }
 
 // add prediction with selected model
-addPredictionData(predictedData, predictTotalResultWithExpR);
+addPredictionData(dailyData, predictedData, predictTotalResultWithExpR);
 
 
 export const summaryData = {
