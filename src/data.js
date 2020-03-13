@@ -14,7 +14,8 @@ export const dailyData = [
   ['March 9, 2020', 7, 47, 0],
   ['March 10, 2020', 14, 61, 0],
   ['March 11, 2020', 4, 65, 0],
-  ['March 12, 2020', 13, 78, 0]
+  ['March 12, 2020', 13, 78, 0],
+  ['March 13, 2020', 14, 92, 0],
 ];
 
 // date, total confirmed, total wip, total excluded, total tested
@@ -27,7 +28,8 @@ export const stastics = [
   ['March 10, 2020 07:00:00', 55, 618, 8361, 9034],
   ['March 10, 2020 21:00:00', 61, 1008, 9096, 10165],
   ['March 11, 2020 13:00:00', 65, 1004, 9152, 10221],
-  ['March 12, 2020 13:00:00', 78, 1831, 11040, 12949] // nsw health said total tested is 14856, which is off the calculated total by 1907, corrected with calculation
+  ['March 12, 2020 13:00:00', 78, 1831, 11040, 12949], // nsw health said total tested is 14856, which is off the calculated total by 1907, corrected with calculation
+  ['March 13, 2020 11:00:00', 92, 1928, 14665, 16685]
 ];
 
 export const sourceData = [
