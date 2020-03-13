@@ -70,12 +70,12 @@ function predictTotalResultWithExpR(day) {
 }
 
 // ploymomial regression prediction, assume the model to be y = ax^2 + bx + c
-function predictTotalResultWithPR(nextDay) {
-  const regA = 0.36063936;
-  const regB = 1.731268731;
-  const regC = 5.622377622;
-  return regA * nextDay * nextDay + regB * nextDay + regC;
-}
+// function predictTotalResultWithPR(nextDay) {
+//   const regA = 0.36063936;
+//   const regB = 1.731268731;
+//   const regC = 5.622377622;
+//   return regA * nextDay * nextDay + regB * nextDay + regC;
+// }
 
 
 // generate predicted data
