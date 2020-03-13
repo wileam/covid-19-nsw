@@ -62,32 +62,48 @@ const recovered = 4;
 
 const remain = totalConfirmed - death - recovered;
 
+// Exponential Regression prediction
+function predictTotalResultWithExpR(day) {
+  const regA = 9.351789611;
+  const regB = 0.1793492611;
+  return regA * Math.exp(regB * day)
+}
+
 // ploymomial regression prediction, assume the model to be y = ax^2 + bx + c
-function predictTotalResult(nextDay) {
-  const regA = 0.2942;
-  const regB = 2.462;
-  const regC = 4.2273;
+function predictTotalResultWithPR(nextDay) {
+  const regA = 0.36063936;
+  const regB = 1.731268731;
+  const regC = 5.622377622;
   return regA * nextDay * nextDay + regB * nextDay + regC;
 }
+
+
 // generate predicted data
 export let predictedData = [];
-for (let curDay = 0; curDay < dailyData.length; curDay++) {
-  let curDayName = dailyData[curDay][0];
-  let curPredictResult = predictTotalResult(curDay + 1);
-  predictedData.push([curDayName, curPredictResult]);
-}
-// predict next 3 days
-const lastIndex = dailyData.length -1;
-const tomorrowDate = new Date(dailyData[lastIndex][0]);
-tomorrowDate.setDate(tomorrowDate.getDate() + 1);
-const nextTowDate = new Date(dailyData[lastIndex][0]);
-nextTowDate.setDate(nextTowDate.getDate() + 2);
-const nextThreeDate = new Date(dailyData[lastIndex][0]);
-nextThreeDate.setDate(nextThreeDate.getDate() + 3);
 
-predictedData.push([tomorrowDate.toDateString(), predictTotalResult(dailyData.length + 1)]);
-predictedData.push([nextTowDate.toDateString(), predictTotalResult(dailyData.length + 2)]);
-predictedData.push([nextThreeDate.toDateString(), predictTotalResult(dailyData.length + 3)]);
+function addPredictionData(predictedData, predictTotalResult) {
+  for (let curDay = 0; curDay < dailyData.length; curDay++) {
+    let curDayName = dailyData[curDay][0];
+    let curPredictResult = predictTotalResult(curDay + 1);
+    predictedData.push([curDayName, curPredictResult]);
+  }
+  // predict next 3 days
+  const lastIndex = dailyData.length -1;
+  const tomorrowDate = new Date(dailyData[lastIndex][0]);
+  tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+  const nextTowDate = new Date(dailyData[lastIndex][0]);
+  nextTowDate.setDate(nextTowDate.getDate() + 2);
+  const nextThreeDate = new Date(dailyData[lastIndex][0]);
+  nextThreeDate.setDate(nextThreeDate.getDate() + 3);
+
+  predictedData.push([tomorrowDate.toDateString(), predictTotalResult(dailyData.length + 1)]);
+  predictedData.push([nextTowDate.toDateString(), predictTotalResult(dailyData.length + 2)]);
+  predictedData.push([nextThreeDate.toDateString(), predictTotalResult(dailyData.length + 3)]);
+}
+
+// add prediction with selected model
+addPredictionData(predictedData, predictTotalResultWithExpR);
+
 
 export const summaryData = {
   totalConfirmed,
