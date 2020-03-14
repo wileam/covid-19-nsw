@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { dailyData, predictedData } from '../../data';
+import { dailyHistorys } from '../../data/dailyHistory';
+// import { dailyData, predictedData } from '../../data';
+
 
 const dailyChartData = {
-  todayData: dailyData.map(([date, today]) => [new Date(date), today]),
-  totalData: dailyData.map(([date, _today, total]) => [new Date(date), total]),
-  predictData: predictedData.map(([date, predictedTotal]) => [
-    new Date(date),
-    Math.round(predictedTotal)
-  ]),
-  deathData: dailyData.map(([date, _today, _total, death]) => [
-    new Date(date),
-    death
-  ])
+  todayData: dailyHistorys.slice(2).map(({date, todayNewNumber}) => [new Date(date), todayNewNumber]),
+  totalData: dailyHistorys.slice(2).map(({date, totalConfirmedNumber}) => [new Date(date), totalConfirmedNumber]),
+  // predictData: predictedData.map(([date, predictedTotal]) => [
+  //   new Date(date),
+  //   Math.round(predictedTotal)
+  // ]),
 };
 
 const getOptions = data => {
@@ -21,9 +19,8 @@ const getOptions = data => {
       show: true,
       selected: {
         total: true,
-        'predicted total': false,
+        // 'predicted total': false,
         'new cases on the day': true
-        // 'new death cases': true
       }
     },
     tooltip: {
@@ -48,24 +45,24 @@ const getOptions = data => {
           }
         }
       },
-      {
-        type: 'line',
-        name: 'predicted total',
-        data: data.predictData,
-        smooth: false,
-        itemStyle: {
-          normal: {
-            label: {
-              show: true,
-              position: 'right'
-            },
-            lineStyle: {
-              width: 2,
-              type: 'dotted' //'dotted'虚线 'solid'实线
-            }
-          }
-        }
-      },
+      // {
+      //   type: 'line',
+      //   name: 'predicted total',
+      //   data: data.predictData,
+      //   smooth: false,
+      //   itemStyle: {
+      //     normal: {
+      //       label: {
+      //         show: true,
+      //         position: 'right'
+      //       },
+      //       lineStyle: {
+      //         width: 2,
+      //         type: 'dotted' //'dotted'虚线 'solid'实线
+      //       }
+      //     }
+      //   }
+      // },
       {
         type: 'bar',
         name: 'new cases on the day',

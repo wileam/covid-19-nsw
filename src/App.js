@@ -1,6 +1,6 @@
 import React from 'react';
 import Disqus from 'disqus-react';
-import { Summary, Chart, DetailTable, Footer } from './components';
+import { Summary, Chart, DetailTable, Footer, ShareButton } from './components';
 import { Divider } from 'semantic-ui-react';
 import { updateTime } from './dateTime.js';
 
@@ -21,11 +21,15 @@ function App() {
         <h1 className='ui header'>CoVid-19 Updates - NSW</h1>
         <small className='ui small'>Site updated: {updateTime} AEDT</small>
       </header>
+      <ShareButton />
+    
       <Summary />
       <Divider />
       <Chart />
       <Divider />
+
       <DetailTable />
+
 
       <Disqus.DiscussionEmbed
         shortname={disqusShortname}

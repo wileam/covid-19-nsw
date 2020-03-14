@@ -81,4 +81,3 @@ export const dailyHistorys = [
     "totalConfirmedNumber": 112
   }
 ];
-  
