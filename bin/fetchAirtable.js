@@ -9,7 +9,7 @@ const _ = require('lodash');
 
 const base = Airtable.base(process.env.BASE_ID);
 
-const todayDateString = tz('Australia/Sydney').format('YYYY-MM-DD');
+const todayDateString = tz.tz('Australia/Sydney').format('YYYY-MM-DD');
 
 function getSummaryByDate(records, dateString) {
   const date = moment(dateString);
@@ -62,7 +62,7 @@ function dailyHistory(records) {
     const summary = getSummaryByDate(records, date);
     dailySummaryHistory.push(
       {
-        date,
+        date: moment(date).format('MMM DD, Y'),
         todayNewNumber: summary.todayNewNumber,
         totalConfirmedNumber: summary.totalConfirmedNumber
       }

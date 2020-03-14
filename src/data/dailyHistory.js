@@ -1,82 +1,82 @@
 
 export const dailyHistorys = [
   {
-    "date": "2020-01-25",
+    "date": "Jan 25, 2020",
     "todayNewNumber": 3,
     "totalConfirmedNumber": 3
   },
   {
-    "date": "2020-01-27",
+    "date": "Jan 27, 2020",
     "todayNewNumber": 1,
     "totalConfirmedNumber": 4
   },
   {
-    "date": "2020-03-01",
+    "date": "Mar 01, 2020",
     "todayNewNumber": 2,
     "totalConfirmedNumber": 6
   },
   {
-    "date": "2020-03-02",
+    "date": "Mar 02, 2020",
     "todayNewNumber": 3,
     "totalConfirmedNumber": 9
   },
   {
-    "date": "2020-03-03",
+    "date": "Mar 03, 2020",
     "todayNewNumber": 6,
     "totalConfirmedNumber": 15
   },
   {
-    "date": "2020-03-04",
+    "date": "Mar 04, 2020",
     "todayNewNumber": 7,
     "totalConfirmedNumber": 22
   },
   {
-    "date": "2020-03-05",
+    "date": "Mar 05, 2020",
     "todayNewNumber": 3,
     "totalConfirmedNumber": 25
   },
   {
-    "date": "2020-03-06",
+    "date": "Mar 06, 2020",
     "todayNewNumber": 3,
     "totalConfirmedNumber": 28
   },
   {
-    "date": "2020-03-07",
+    "date": "Mar 07, 2020",
     "todayNewNumber": 8,
     "totalConfirmedNumber": 36
   },
   {
-    "date": "2020-03-08",
+    "date": "Mar 08, 2020",
     "todayNewNumber": 4,
     "totalConfirmedNumber": 40
   },
   {
-    "date": "2020-03-09",
+    "date": "Mar 09, 2020",
     "todayNewNumber": 7,
     "totalConfirmedNumber": 47
   },
   {
-    "date": "2020-03-10",
+    "date": "Mar 10, 2020",
     "todayNewNumber": 14,
     "totalConfirmedNumber": 61
   },
   {
-    "date": "2020-03-11",
+    "date": "Mar 11, 2020",
     "todayNewNumber": 4,
     "totalConfirmedNumber": 65
   },
   {
-    "date": "2020-03-12",
+    "date": "Mar 12, 2020",
     "todayNewNumber": 13,
     "totalConfirmedNumber": 78
   },
   {
-    "date": "2020-03-13",
+    "date": "Mar 13, 2020",
     "todayNewNumber": 14,
     "totalConfirmedNumber": 92
   },
   {
-    "date": "2020-03-14",
+    "date": "Mar 14, 2020",
     "todayNewNumber": 20,
     "totalConfirmedNumber": 112
   }
