@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "./bin/build.sh && react-scripts start",
-    "build": "./bin/build.sh && react-scripts build",
+    "build": "./bin/build.sh && GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
