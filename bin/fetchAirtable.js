@@ -109,7 +109,23 @@ export const dailyHistorys = ${JSON.stringify(dailyHistorys, null, 2)};
   export const predicts = ${JSON.stringify(predicts, null, 2)};
     `;
   fs.writeFileSync(predictPath, predictsSummaryTpl);
-  /* todaySummarys END */
+  /* predict END */
+
+  /* statistics START */
+  const statisticsPath = path.join(process.cwd(), "src/data/statistics.js");
+  let statistics = await base("Statistics")
+    .select({
+      maxRecords: 500,
+      view: "Grid view"
+    })
+    .all();
+  
+  statistics = statistics.map(statistic => statistic.fields);
+  const statisticsSummaryTpl = `
+  export const statistics = ${JSON.stringify(statistics, null, 2)};
+    `;
+  fs.writeFileSync(statisticsPath, statisticsSummaryTpl);
+  /* statistics END */
 })().catch(e => {
   console.log(e);
 });

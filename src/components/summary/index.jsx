@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Statistic, Table } from 'semantic-ui-react';
 import { todaySummarys } from '../../data/todaySummary';
-import { summaryData } from '../../data.js';
+import { statistics } from '../../data/statistics';
 import './index.scss';
 
 export const Summary = () => {
@@ -12,9 +12,9 @@ export const Summary = () => {
     totalRemianNumber,
     todayNewNumber,
   } = todaySummarys;
-  const {
-    wip, totalTested, excluded
-  } = summaryData;
+  const wip = statistics[0]['under investigation'];
+  const excluded = statistics[0].excluded;
+  const totalTested = statistics[0]['total tested'];
   return (
     <div className='summary'>
       <h2 className='ui small header'>Summary data:</h2>
