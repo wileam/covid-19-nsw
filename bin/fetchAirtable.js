@@ -81,11 +81,9 @@ function dailyHistory(records) {
   const dailySummaryTpl = `
 export const todaySummarys = ${JSON.stringify(todaySummarys, null, 2)};
   `
-  console.log(dailySummaryTpl);
   fs.writeFileSync(dailySummaryPath, dailySummaryTpl);
 
   const dailyHistorys = dailyHistory(records);
-  console.log(dailyHistorys);
   const dailyHistorysTpl = `
 export const dailyHistorys = ${JSON.stringify(dailyHistorys, null, 2)};
   `
