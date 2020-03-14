@@ -5,7 +5,7 @@ const moment = require("moment");
 const tz = require("moment-timezone");
 const fs = require("fs");
 const path = require("path");
-const _ = require("lodash");
+const uniqBy = require("lodash.uniqby");
 const assert = require("assert");
 
 assert(process.env.BASE_ID, "Please set BASE_ID!");
@@ -61,7 +61,7 @@ function getSummaryByDate(records, dateString) {
 }
 
 function dailyHistory(records) {
-  const uniqRecords = _.uniqBy(records, e => e.get("Diagnosis"));
+  const uniqRecords = uniqBy(records, e => e.get("Diagnosis"));
   const dailySummaryHistory = [];
   for (let i = uniqRecords.length - 1; i >= 0; i--) {
     const record = uniqRecords[i];
