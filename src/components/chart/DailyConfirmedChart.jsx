@@ -18,7 +18,7 @@ const getOptions = data => {
       show: true,
       selected: {
         total: true,
-        // 'predicted total': false,
+        'predicted total': false,
         'new cases on the day': true
       }
     },
