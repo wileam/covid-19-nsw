@@ -37,19 +37,19 @@ export const stastics = [
 export const sourceData = [
   {
     name: 'overseas',
-    value: 34+7
+    value: 51
   },
   {
     name: 'contact of confirmed case',
-    value: 32+1
+    value: 32
   },
   {
     name: 'under investigation',
-    value: 10+5
+    value: 18
   },
   {
     name: 'not identified',
-    value: 2+1
+    value: 11
   }
 ];
 
