@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import { dailyHistorys } from '../../data/dailyHistory';
-// import { dailyData, predictedData } from '../../data';
-
+import { predicts } from '../../data/predict';
 
 const dailyChartData = {
-  todayData: dailyHistorys.slice(2).map(({date, todayNewNumber}) => [new Date(date), todayNewNumber]),
-  totalData: dailyHistorys.slice(2).map(({date, totalConfirmedNumber}) => [new Date(date), totalConfirmedNumber]),
-  // predictData: predictedData.map(([date, predictedTotal]) => [
-  //   new Date(date),
-  //   Math.round(predictedTotal)
-  // ]),
+  todayData: dailyHistorys.map(({date, todayNewNumber}) => [new Date(date), todayNewNumber]),
+  totalData: dailyHistorys.map(({date, totalConfirmedNumber}) => [new Date(date), totalConfirmedNumber]),
+  predictData: predicts.map(({date, predictedTotalConfirmedNumber}) => [
+    new Date(date),
+    predictedTotalConfirmedNumber
+  ]),
 };
 
 const getOptions = data => {
@@ -45,24 +44,24 @@ const getOptions = data => {
           }
         }
       },
-      // {
-      //   type: 'line',
-      //   name: 'predicted total',
-      //   data: data.predictData,
-      //   smooth: false,
-      //   itemStyle: {
-      //     normal: {
-      //       label: {
-      //         show: true,
-      //         position: 'right'
-      //       },
-      //       lineStyle: {
-      //         width: 2,
-      //         type: 'dotted' //'dotted'虚线 'solid'实线
-      //       }
-      //     }
-      //   }
-      // },
+      {
+        type: 'line',
+        name: 'predicted total',
+        data: data.predictData,
+        smooth: false,
+        itemStyle: {
+          normal: {
+            label: {
+              show: true,
+              position: 'right'
+            },
+            lineStyle: {
+              width: 2,
+              type: 'dotted' //'dotted'虚线 'solid'实线
+            }
+          }
+        }
+      },
       {
         type: 'bar',
         name: 'new cases on the day',

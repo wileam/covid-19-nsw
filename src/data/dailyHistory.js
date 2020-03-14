@@ -1,16 +1,6 @@
 
 export const dailyHistorys = [
   {
-    "date": "Jan 25, 2020",
-    "todayNewNumber": 3,
-    "totalConfirmedNumber": 3
-  },
-  {
-    "date": "Jan 27, 2020",
-    "todayNewNumber": 1,
-    "totalConfirmedNumber": 4
-  },
-  {
     "date": "Mar 01, 2020",
     "todayNewNumber": 2,
     "totalConfirmedNumber": 6
@@ -81,3 +71,4 @@ export const dailyHistorys = [
     "totalConfirmedNumber": 112
   }
 ];
+  
