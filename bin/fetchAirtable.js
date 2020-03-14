@@ -119,7 +119,6 @@ export const dailyHistorys = ${JSON.stringify(dailyHistorys, null, 2)};
       view: "Grid view"
     })
     .all();
-  console.log(statistics);
   
   statistics = statistics.map(statistic => statistic.fields);
   const statisticsSummaryTpl = `

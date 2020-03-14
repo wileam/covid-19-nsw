@@ -9,7 +9,7 @@ let totalConfirmed = [],
 
 for (let i = 0; i < statistics.length; i++) {
   const data = statistics[i];
-  const date = new Date(data[0]);
+  const date = new Date(data.Date);
 
   totalConfirmed.push([date, data.confirmed]);
   wip.push([date, data['under investigation']]);
