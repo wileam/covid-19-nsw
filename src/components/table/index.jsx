@@ -8,7 +8,7 @@ export const DetailTable = () => (
     </h2>
     <Iframe
       className='airtable-embed'
-      url='https://airtable.com/embed/shr289gFl44ZlCYnC?backgroundColor=teal'
+      url='https://airtable.com/shra818iBGDdK6MHI?backgroundColor=teal'
       frameborder='0'
       onmousewheel=''
       width='100%'
