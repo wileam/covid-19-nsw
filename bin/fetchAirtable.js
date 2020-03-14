@@ -2,13 +2,14 @@
 
 const Airtable = require('airtable');
 const moment = require('moment');
+const tz = require('moment-timezone');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
 const base = Airtable.base(process.env.BASE_ID);
 
-const todayDateString = moment().format("YYYY-MM-DD");
+const todayDateString = tz('Australia/Sydney').format('YYYY-MM-DD');
 
 function getSummaryByDate(records, dateString) {
   const date = moment(dateString);
