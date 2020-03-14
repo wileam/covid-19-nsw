@@ -66,8 +66,8 @@ const remain = totalConfirmed - death - recovered;
 
 // Exponential Regression prediction
 function predictTotalResultWithExpR(day) {
-  const regA = 9.351789611;
-  const regB = 0.1793492611;
+  const regA = 9.465373537;
+  const regB = 0.1776784372;
   return regA * Math.exp(regB * day)
 }
 
