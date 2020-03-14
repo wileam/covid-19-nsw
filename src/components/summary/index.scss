@@ -2,4 +2,7 @@
   .ui.grid {
     width: 100%;
   }
+  .ui.statistic>.value, .ui.statistics .statistic>.value {
+    font-size: 3rem !important;
+  }
 }

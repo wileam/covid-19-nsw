@@ -76,7 +76,6 @@ const getOptions = data => {
           }
         }
       }
-      // { type: 'bar', name: 'new death cases', data: data.deathData }
     ]
   };
 };

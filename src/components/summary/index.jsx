@@ -17,7 +17,7 @@ export const Summary = () => {
   return (
     <div className='summary'>
       <h2 className='ui small header'>Summary data:</h2>
-      <Grid columns={4}>
+      <Grid columns='equal' container>
         <Grid.Column>
           <Statistic color='blue' label='Remain' value={remain} />
         </Grid.Column>
