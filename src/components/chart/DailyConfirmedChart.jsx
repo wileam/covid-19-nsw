@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { dailyData, predictedData } from '../../data';
+import { dailyHistorys } from '../../data/dailyHistory';
+import { predicts } from '../../data/predict';
 
 const dailyChartData = {
-  todayData: dailyData.map(([date, today]) => [new Date(date), today]),
-  totalData: dailyData.map(([date, _today, total]) => [new Date(date), total]),
-  predictData: predictedData.map(([date, predictedTotal]) => [
+  todayData: dailyHistorys.map(({date, todayNewNumber}) => [new Date(date), todayNewNumber]),
+  totalData: dailyHistorys.map(({date, totalConfirmedNumber}) => [new Date(date), totalConfirmedNumber]),
+  predictData: predicts.map(({date, predictedTotalConfirmedNumber}) => [
     new Date(date),
-    Math.round(predictedTotal)
+    predictedTotalConfirmedNumber
   ]),
-  deathData: dailyData.map(([date, _today, _total, death]) => [
-    new Date(date),
-    death
-  ])
 };
 
 const getOptions = data => {
@@ -23,7 +20,6 @@ const getOptions = data => {
         total: true,
         'predicted total': false,
         'new cases on the day': true
-        // 'new death cases': true
       }
     },
     tooltip: {
@@ -79,7 +75,6 @@ const getOptions = data => {
           }
         }
       }
-      // { type: 'bar', name: 'new death cases', data: data.deathData }
     ]
   };
 };

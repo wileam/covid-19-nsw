@@ -1,5 +1,14 @@
 .summary {
   .ui.grid {
-    width: 100%;
+    .column {
+      display: flex !important;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .ui.statistic > .value,
+  .ui.statistics .statistic > .value {
+    font-size: 3rem !important;
   }
 }
