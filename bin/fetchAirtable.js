@@ -125,7 +125,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
 
     /* predict START */
     const predictPath = path.join(process.cwd(), `src/data/${name}/predict.js`);
-    const predicts = predict(dailyHistorys);
+    const predicts = predict(dailyHistorys, name);
     const predictsSummaryTpl = `
     export const predicts = ${JSON.stringify(predicts, null, 2)};
       `;

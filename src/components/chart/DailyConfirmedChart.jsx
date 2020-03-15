@@ -35,7 +35,7 @@ const getOptions = (id, dailyHistorys, predicts) => {
       }
     }
   ];
-  if (id === "NSW") {
+
     series.push({
       type: "line",
       name: "predicted total",
@@ -54,7 +54,6 @@ const getOptions = (id, dailyHistorys, predicts) => {
         }
       }
     });
-  }  
   return {
     legend: {
       show: true,
