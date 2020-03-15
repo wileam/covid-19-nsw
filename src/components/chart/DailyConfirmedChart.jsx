@@ -8,6 +8,53 @@ const getOptions = (id, dailyHistorys, predicts) => {
     new Date(date),
     predictedTotalConfirmedNumber
   ]);
+  const series = [
+    {
+      type: "line",
+      name: "total",
+      data: totalData,
+      itemStyle: {
+        normal: {
+          label: {
+            show: true
+          }
+        }
+      }
+    },
+    {
+      type: "bar",
+      name: "new cases on the day",
+      data: todayData,
+      itemStyle: {
+        normal: {
+          label: {
+            show: true,
+            position: "top"
+          }
+        }
+      }
+    }
+  ];
+  if (id === "NSW") {
+    series.push({
+      type: "line",
+      name: "predicted total",
+      data: predictData,
+      smooth: false,
+      itemStyle: {
+        normal: {
+          label: {
+            show: true,
+            position: "right"
+          },
+          lineStyle: {
+            width: 2,
+            type: "dotted" //'dotted'虚线 'solid'实线
+          }
+        }
+      }
+    });
+  }  
   return {
     legend: {
       show: true,
@@ -26,51 +73,7 @@ const getOptions = (id, dailyHistorys, predicts) => {
     yAxis: {
       type: 'value'
     },
-    series: [
-      {
-        type: 'line',
-        name: 'total',
-        data: totalData,
-        itemStyle: {
-          normal: {
-            label: {
-              show: true
-            }
-          }
-        }
-      },
-      id === 'NSW' && {
-        type: 'line',
-        name: 'predicted total',
-        data: predictData,
-        smooth: false,
-        itemStyle: {
-          normal: {
-            label: {
-              show: true,
-              position: 'right'
-            },
-            lineStyle: {
-              width: 2,
-              type: 'dotted' //'dotted'虚线 'solid'实线
-            }
-          }
-        }
-      },
-      {
-        type: 'bar',
-        name: 'new cases on the day',
-        data: todayData,
-        itemStyle: {
-          normal: {
-            label: {
-              show: true,
-              position: 'top'
-            }
-          }
-        }
-      }
-    ]
+    series,
   };
 };
 
