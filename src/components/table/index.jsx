@@ -1,14 +1,25 @@
 import React from 'react';
 import Iframe from 'react-iframe';
 
-export const DetailTable = () => (
+const STATE_KEY_MAP = {
+  NSW: 'shrwCf9WUJrBKNZHB',
+  VIC: 'shrKh4I4XuWbUr0mh',
+  QLD: 'shrqzrS1Px0JXrM4h',
+  WA: 'shrY62a2829RpTIfn',
+  SA: 'shrGGCzlLOETWFzNd',
+  TAS: 'shrfEwUbg7HbtyIOm',
+  NT: 'shrrueAhnuETjOJVW',
+  ACT: 'shrmTt5x64kBoIHOs'
+}
+
+export const DetailTable = ({id}) => (
   <>
     <h2 className='ui small header'>
       Confirmed cases details(best view on desktop):
     </h2>
     <Iframe
       className='airtable-embed'
-      url='https://airtable.com/embed/shra818iBGDdK6MHI?backgroundColor=teal'
+      url={`https://airtable.com/embed/${STATE_KEY_MAP[id]}?backgroundColor=teal`}
       frameborder='0'
       onmousewheel=''
       width='100%'

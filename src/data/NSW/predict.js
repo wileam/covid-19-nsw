@@ -1,5 +1,5 @@
 
-  export const predicts = [
+    export const predicts = [
   {
     "date": "Mar 01, 2020",
     "predictedTotalConfirmedNumber": 11
@@ -67,6 +67,10 @@
   {
     "date": "Mar 17, 2020",
     "predictedTotalConfirmedNumber": 194
+  },
+  {
+    "date": "Mar 18, 2020",
+    "predictedTotalConfirmedNumber": 232
   }
 ];
-    
+      

@@ -9,9 +9,9 @@ if [[ -n $CI ]]; then
   echo "fetching Airtable data..."
   ./bin/fetchAirtable.js
 
-  tail -n10  src/data/todaySummary.js
+  # tail -n10  src/data/todaySummary.js
 
-  tail -n20  src/data/dailyHistory.js
+  # tail -n20  src/data/dailyHistory.js
 else
   echo "Not build on CI, ignore the regenerating update date..."
 fi

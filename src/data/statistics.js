@@ -1,5 +1,5 @@
 
-  export const statistics = [
+export const statistics = [
   {
     "confirmed": 112,
     "Date": "2020-03-14T11:00:00.000Z",
@@ -100,3 +100,4 @@
     "total tested": 6796
   }
 ];
+  
