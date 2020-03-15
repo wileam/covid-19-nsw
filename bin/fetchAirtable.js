@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-
 const Airtable = require("airtable");
 const moment = require("moment");
 const tz = require("moment-timezone");
-const fs = require("fs");
+const fs = require("fs").promises;
 const path = require("path");
 const uniqBy = require("lodash.uniqby");
 const assert = require("assert");
@@ -108,7 +107,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     const todaySummaryTpl = `
   export const todaySummarys = ${JSON.stringify(todaySummarys, null, 2)};
     `;
-    fs.writeFileSync(todaySummaryPath, todaySummaryTpl);
+    await fs.writeFile(todaySummaryPath, todaySummaryTpl);
     /* todaySummarys END */
 
     /* dailyHistorys START */
@@ -120,7 +119,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
       process.cwd(),
       `src/data/${name}/dailyHistory.js`
     );
-    fs.writeFileSync(dailyHistoryPath, dailyHistorysTpl);
+    await fs.writeFile(dailyHistoryPath, dailyHistorysTpl);
     /* dailyHistorys END */
 
     /* predict START */
@@ -129,7 +128,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     const predictsSummaryTpl = `
     export const predicts = ${JSON.stringify(predicts, null, 2)};
       `;
-    fs.writeFileSync(predictPath, predictsSummaryTpl);
+    await fs.writeFile(predictPath, predictsSummaryTpl);
     /* predict END */
 
     /* index START */
@@ -139,7 +138,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     export * from './todaySummary';
     export * from './predict';
       `;
-    fs.writeFileSync(indexPath, indexTpl);
+    await fs.writeFile(indexPath, indexTpl);
     /* index END */
 
     // wait for a while to avoid rate limit
@@ -151,28 +150,30 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     `src/data/index.js`
   );
   const dataTpl = tpl(states);
-  fs.writeFileSync(dataPath, dataTpl);
+  await fs.writeFile(dataPath, dataTpl);
 })().catch(e => {
   console.log(e);
 });
 
-(async () => {
-  /* statistics START */
-  console.log(`fetching statistics' data...`);
-  const statisticsPath = path.join(process.cwd(), `src/data/statistics.js`);
-  let statistics = await base('Statistics')
+async function fetchTable(table, view = 'Grid view', maxRecords = 500) {
+  console.log(`fetching ${table}'s data...`);
+  const filePath = path.join(process.cwd(), `src/data/${table.toLowerCase()}.js`);
+  let items = await base(table)
     .select({
-      maxRecords: 500,
-      view: 'Grid view'
+      maxRecords,
+      view,
     })
     .all();
 
-  statistics = statistics.map(statistic => statistic.fields);
-  const statisticsSummaryTpl = `
-export const statistics = ${JSON.stringify(statistics, null, 2)};
-  `;
-  fs.writeFileSync(statisticsPath, statisticsSummaryTpl);
-  /* statistics END */
-})().catch(e => {
-  console.log(e);
-});
+  items = items.map(statistic => statistic.fields);
+  const tpl = `
+  export const ${table.toLowerCase()} = ${JSON.stringify(items, null, 2)};
+    `;
+  await fs.writeFile(filePath, tpl);
+}
+
+const tables = ['Statistics', 'Source'];
+
+for (const table of tables) {
+  fetchTable(table).catch(e => console.log(e));
+}
