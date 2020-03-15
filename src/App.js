@@ -73,7 +73,7 @@ function Child({ id }) {
         <h1 className='ui header'>CoVid-19 Updates - {id}</h1>
         <small className='ui small'>Site updated: {updateTime} AEDT</small>
       </header>
-      <ShareButton id={id} />
+      <ShareButton/>
       <Page id={id} data={data} />
       <Divider />
 
