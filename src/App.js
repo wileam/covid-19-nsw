@@ -40,7 +40,7 @@ const App = () => {
               <NavLink
                 exact
                 isActive={(match, location) => {
-                  return location.pathname == `/${nav}`;
+                  return location.pathname === `/${nav}`;
                 }}
                 activeClassName='active'
                 to={nav}
