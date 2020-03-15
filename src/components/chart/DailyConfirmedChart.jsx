@@ -80,7 +80,7 @@ const getOptions = (id, dailyHistorys, predicts) => {
     yAxis: {
       type: "value"
     },
-    series
+    series,
   };
 };
 
