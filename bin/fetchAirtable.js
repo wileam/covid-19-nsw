@@ -88,6 +88,7 @@ function sleep(time) {
 const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
 
 (async () => {
+  let nationalTodaySummary = [];
   for (let i = 0; i < states.length; i++) {
     const name = states[i];
     console.log(`fetching ${name}'s data...`);
@@ -104,6 +105,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
       `src/data/${name}/todaySummary.js`
     );
     const todaySummarys = getSummaryByDate(records, todayDateString);
+    nationalTodaySummary.push(todaySummarys);
     const todaySummaryTpl = `
   export const todaySummarys = ${JSON.stringify(todaySummarys, null, 2)};
     `;
@@ -144,6 +146,31 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     // wait for a while to avoid rate limit
     await sleep(500);
   }
+
+  nationalTodaySummary = nationalTodaySummary.reduce((a, b) => {
+    return {
+      totalConfirmedNumber: a.totalConfirmedNumber + b.totalConfirmedNumber,
+      totalRecoveredNumber: a.totalRecoveredNumber + b.totalRecoveredNumber,
+      totalDeathNumber: a.totalDeathNumber + b.totalDeathNumber,
+      totalRemianNumber: a.totalRemianNumber + b.totalRemianNumber,
+      todayNewNumber: a.todayNewNumber + b.todayNewNumber,
+    }
+  }, {
+    totalConfirmedNumber: 0,
+    totalRecoveredNumber: 0,
+    totalDeathNumber: 0,
+    totalRemianNumber: 0,
+    todayNewNumber: 0,
+  });
+
+  const nationalTodaySummaryPath = path.join(
+    process.cwd(),
+    `src/data/AUS/todaySummary.js`
+  );
+  const nationalTodaySummaryTpl = `
+  export const todaySummarys = ${JSON.stringify(nationalTodaySummary, null, 2)};
+    `;
+  await fs.writeFile(nationalTodaySummaryPath, nationalTodaySummaryTpl);
 
   const dataPath = path.join(
     process.cwd(),
