@@ -54,7 +54,7 @@ const App = () => {
       </div>
       <Switch>
         {navList.map(id => (
-          <Route path={`/${id}`}>
+          <Route path={`${process.env.PUBLIC_URL}/${id}`}>
             <Child id={id} />
           </Route>
         ))}
