@@ -19,18 +19,18 @@ export const VICData = [
 export const sourceData = [
   {
     name: 'overseas',
-    value: 51
+    value: 60
   },
   {
     name: 'contact of confirmed case',
-    value: 32
+    value: 38
   },
   {
     name: 'under investigation',
-    value: 18
+    value: 23
   },
   {
     name: 'not identified',
-    value: 11
+    value: 13
   }
 ];
