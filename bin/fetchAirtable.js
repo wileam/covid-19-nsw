@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-
 const Airtable = require("airtable");
 const moment = require("moment");
 const tz = require("moment-timezone");
-const fs = require("fs");
+const fs = require("fs").promises;
 const path = require("path");
 const uniqBy = require("lodash.uniqby");
 const assert = require("assert");
@@ -89,6 +88,7 @@ function sleep(time) {
 const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
 
 (async () => {
+  let nationalTodaySummary = [];
   for (let i = 0; i < states.length; i++) {
     const name = states[i];
     console.log(`fetching ${name}'s data...`);
@@ -105,10 +105,11 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
       `src/data/${name}/todaySummary.js`
     );
     const todaySummarys = getSummaryByDate(records, todayDateString);
+    nationalTodaySummary.push(todaySummarys);
     const todaySummaryTpl = `
   export const todaySummarys = ${JSON.stringify(todaySummarys, null, 2)};
     `;
-    fs.writeFileSync(todaySummaryPath, todaySummaryTpl);
+    await fs.writeFile(todaySummaryPath, todaySummaryTpl);
     /* todaySummarys END */
 
     /* dailyHistorys START */
@@ -120,7 +121,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
       process.cwd(),
       `src/data/${name}/dailyHistory.js`
     );
-    fs.writeFileSync(dailyHistoryPath, dailyHistorysTpl);
+    await fs.writeFile(dailyHistoryPath, dailyHistorysTpl);
     /* dailyHistorys END */
 
     /* predict START */
@@ -129,7 +130,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     const predictsSummaryTpl = `
     export const predicts = ${JSON.stringify(predicts, null, 2)};
       `;
-    fs.writeFileSync(predictPath, predictsSummaryTpl);
+    await fs.writeFile(predictPath, predictsSummaryTpl);
     /* predict END */
 
     /* index START */
@@ -139,40 +140,75 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     export * from './todaySummary';
     export * from './predict';
       `;
-    fs.writeFileSync(indexPath, indexTpl);
+    await fs.writeFile(indexPath, indexTpl);
     /* index END */
 
     // wait for a while to avoid rate limit
     await sleep(500);
   }
 
+  nationalTodaySummary = nationalTodaySummary.reduce((a, b) => {
+    return {
+      totalConfirmedNumber: a.totalConfirmedNumber + b.totalConfirmedNumber,
+      totalRecoveredNumber: a.totalRecoveredNumber + b.totalRecoveredNumber,
+      totalDeathNumber: a.totalDeathNumber + b.totalDeathNumber,
+      totalRemianNumber: a.totalRemianNumber + b.totalRemianNumber,
+      todayNewNumber: a.todayNewNumber + b.todayNewNumber,
+    }
+  }, {
+    totalConfirmedNumber: 0,
+    totalRecoveredNumber: 0,
+    totalDeathNumber: 0,
+    totalRemianNumber: 0,
+    todayNewNumber: 0,
+  });
+
+  const nationalTodaySummaryPath = path.join(
+    process.cwd(),
+    `src/data/AUS/todaySummary.js`
+  );
+  const nationalTodaySummaryTpl = `
+  export const todaySummarys = ${JSON.stringify(nationalTodaySummary, null, 2)};
+    `;
+  await fs.writeFile(nationalTodaySummaryPath, nationalTodaySummaryTpl);
+
+  /* AUS index START */
+  const ausIndexPath = path.join(process.cwd(), `src/data/AUS/index.js`);
+  const ausIndexTpl = `
+  export * from './todaySummary';
+    `;
+  await fs.writeFile(ausIndexPath, ausIndexTpl);
+  /* AUS index END */
+})().catch(e => {
+  console.log(e);
+});
+
+async function fetchTable(table, view = 'Grid view', maxRecords = 500) {
+  console.log(`fetching ${table}'s data...`);
+  const filePath = path.join(process.cwd(), `src/data/${table.toLowerCase()}.js`);
+  let items = await base(table)
+    .select({
+      maxRecords,
+      view,
+    })
+    .all();
+
+  items = items.map(statistic => statistic.fields);
+  const tpl = `
+  export const ${table.toLowerCase()} = ${JSON.stringify(items, null, 2)};
+    `;
+  await fs.writeFile(filePath, tpl);
+}
+
+const tables = ['Statistics', 'Source'];
+
+for (const table of tables) {
+  fetchTable(table).catch(e => console.log(e));
+
   const dataPath = path.join(
     process.cwd(),
     `src/data/index.js`
   );
-  const dataTpl = tpl(states);
-  fs.writeFileSync(dataPath, dataTpl);
-})().catch(e => {
-  console.log(e);
-});
-
-(async () => {
-  /* statistics START */
-  console.log(`fetching statistics' data...`);
-  const statisticsPath = path.join(process.cwd(), `src/data/statistics.js`);
-  let statistics = await base('Statistics')
-    .select({
-      maxRecords: 500,
-      view: 'Grid view'
-    })
-    .all();
-
-  statistics = statistics.map(statistic => statistic.fields);
-  const statisticsSummaryTpl = `
-export const statistics = ${JSON.stringify(statistics, null, 2)};
-  `;
-  fs.writeFileSync(statisticsPath, statisticsSummaryTpl);
-  /* statistics END */
-})().catch(e => {
-  console.log(e);
-});
+  const dataTpl = tpl([...states, 'AUS'], tables.map(table => table.toLowerCase()));
+  fs.writeFile(dataPath, dataTpl);
+}

@@ -1,7 +1,11 @@
 <% states.forEach(function(state){ %>
 import * as <%- state %> from './<%- state %>' <% }); %>
+<% tables.forEach(function(table){ %>
+import * as <%- table %> from './<%- table %>' <% }); %>
 
 export const data = {
   <% states.forEach(function(state){ %>
     <%- state %>, <% }); %>
+  <% tables.forEach(function(table){ %>
+    <%- table %>, <% }); %>
 }

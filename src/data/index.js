@@ -7,6 +7,10 @@ import * as SA from './SA'
 import * as TAS from './TAS' 
 import * as NT from './NT' 
 import * as ACT from './ACT' 
+import * as AUS from './AUS' 
+
+import * as statistics from './statistics' 
+import * as source from './source' 
 
 export const data = {
   
@@ -18,4 +22,8 @@ export const data = {
     TAS, 
     NT, 
     ACT, 
+    AUS, 
+  
+    statistics, 
+    source, 
 }
