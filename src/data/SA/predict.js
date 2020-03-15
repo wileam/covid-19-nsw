@@ -14,7 +14,7 @@
   },
   {
     "date": "Mar 11, 2020",
-    "predictedTotalConfirmedNumber": 9
+    "predictedTotalConfirmedNumber": 10
   },
   {
     "date": "Mar 12, 2020",
@@ -22,23 +22,27 @@
   },
   {
     "date": "Mar 13, 2020",
-    "predictedTotalConfirmedNumber": 16
+    "predictedTotalConfirmedNumber": 15
   },
   {
     "date": "Mar 14, 2020",
-    "predictedTotalConfirmedNumber": 19
+    "predictedTotalConfirmedNumber": 18
   },
   {
     "date": "Mar 15, 2020",
-    "predictedTotalConfirmedNumber": 23
+    "predictedTotalConfirmedNumber": 21
   },
   {
     "date": "Mar 16, 2020",
-    "predictedTotalConfirmedNumber": 28
+    "predictedTotalConfirmedNumber": 24
   },
   {
     "date": "Mar 17, 2020",
-    "predictedTotalConfirmedNumber": 33
+    "predictedTotalConfirmedNumber": 27
+  },
+  {
+    "date": "Mar 18, 2020",
+    "predictedTotalConfirmedNumber": 31
   }
 ];
       

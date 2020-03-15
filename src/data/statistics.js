@@ -1,5 +1,12 @@
 
-export const statistics = [
+  export const statistics = [
+  {
+    "calc total": 5442,
+    "Date": "2020-03-15T12:30:00.000Z",
+    "State": "WA",
+    "confirmed": 18,
+    "excluded": 5424
+  },
   {
     "Date": "2020-03-15T11:00:00.000Z",
     "State": "NSW",
@@ -109,4 +116,4 @@ export const statistics = [
     "calc total": 6796
   }
 ];
-  
+    

@@ -4,6 +4,6 @@
   "totalRecoveredNumber": 1,
   "totalDeathNumber": 1,
   "totalRemianNumber": 16,
-  "todayNewNumber": 1
+  "todayNewNumber": 0
 };
     

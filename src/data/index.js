@@ -9,8 +9,8 @@ import * as NT from './NT'
 import * as ACT from './ACT' 
 import * as AUS from './AUS' 
 
-import * as statistics from './statistics' 
-import * as source from './source' 
+import { statistics } from './statistics' 
+import { source } from './source' 
 
 export const data = {
   

@@ -40,11 +40,26 @@
     "airtable": "^0.8.1",
     "ejs": "^3.0.1",
     "exponential-regression": "^1.0.2",
+    "husky": ">=4",
+    "lint-staged": ">=10",
     "lodash.uniqby": "^4.7.0",
     "ml-regression-polynomial": "^2.1.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "node-sass": "^4.13.1",
+    "prettier": "^1.19.1",
     "react-scripts": "^3.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "jsxSingleQuote": true,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
