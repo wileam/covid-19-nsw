@@ -22,8 +22,8 @@
   },
   {
     "date": "Mar 14, 2020",
-    "todayNewNumber": 1,
-    "totalConfirmedNumber": 5
+    "todayNewNumber": 2,
+    "totalConfirmedNumber": 6
   }
 ];
     

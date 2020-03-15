@@ -100,3 +100,4 @@ export const statistics = [
     "total tested": 6796
   }
 ];
+  

@@ -25,10 +25,10 @@ const disqusConfig = {
 };
 
 const App = () => {
-  let defaultActive = window.location.pathname.slice(1) ;
-  if(!defaultActive) {
+  let defaultActive = window.location.pathname.slice(1);
+  if (!defaultActive) {
     history.push('/NSW');
-    defaultActive = window.location.pathname.slice(1) ;
+    defaultActive = window.location.pathname.slice(1);
   }
   const [active, setActive] = useState(defaultActive);
   const navList = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
@@ -43,7 +43,7 @@ const App = () => {
                 isActive={(match, location) => {
                   return location.pathname == `/${nav}`;
                 }}
-                activeClassName="active"
+                activeClassName='active'
                 to={nav}
                 onClick={() => setActive(nav)}
               >
@@ -54,7 +54,11 @@ const App = () => {
         </List>
       </div>
       <Switch>
-        <Route path='/:id' children={<Child />} />
+        {navList.map(id => (
+          <Route path={`/${id}`}>
+            <Child id={id} />
+          </Route>
+        ))}
       </Switch>
       <Child />
     </Router>
@@ -62,17 +66,10 @@ const App = () => {
 };
 
 function getDataById(id) {
-  console.log(id);
-  if (id) {
-    return data[id];
-  }
-  return data.NSW; // Todo: seems a bug in react-router that it will render twice, first time is correct and second time is undefined
+  return data[id];
 }
 
-function Child() {
-  // We can use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
-  let { id } = useParams();
+function Child({ id }) {
   const data = getDataById(id);
   return (
     <div className='ui container'>
@@ -84,7 +81,7 @@ function Child() {
       <Page id={id} data={data} />
       <Divider />
 
-      <DetailTable id={id}/>
+      <DetailTable id={id} />
 
       <Disqus.DiscussionEmbed
         shortname={disqusShortname}
