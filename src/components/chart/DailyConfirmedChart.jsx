@@ -1,18 +1,13 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { dailyHistorys } from '../../data/dailyHistory';
-import { predicts } from '../../data/predict';
 
-const dailyChartData = {
-  todayData: dailyHistorys.map(({date, todayNewNumber}) => [new Date(date), todayNewNumber]),
-  totalData: dailyHistorys.map(({date, totalConfirmedNumber}) => [new Date(date), totalConfirmedNumber]),
-  predictData: predicts.map(({date, predictedTotalConfirmedNumber}) => [
+const getOptions = (id, dailyHistorys, predicts) => {
+  let todayData = dailyHistorys.map(({date, todayNewNumber}) => [new Date(date), todayNewNumber]);
+  let totalData = dailyHistorys.map(({date, totalConfirmedNumber}) => [new Date(date), totalConfirmedNumber]);
+  let predictData = predicts.map(({date, predictedTotalConfirmedNumber}) => [
     new Date(date),
     predictedTotalConfirmedNumber
-  ]),
-};
-
-const getOptions = data => {
+  ]);
   return {
     legend: {
       show: true,
@@ -35,7 +30,7 @@ const getOptions = data => {
       {
         type: 'line',
         name: 'total',
-        data: data.totalData,
+        data: totalData,
         itemStyle: {
           normal: {
             label: {
@@ -44,10 +39,10 @@ const getOptions = data => {
           }
         }
       },
-      {
+      id === 'NSW' && {
         type: 'line',
         name: 'predicted total',
-        data: data.predictData,
+        data: predictData,
         smooth: false,
         itemStyle: {
           normal: {
@@ -65,7 +60,7 @@ const getOptions = data => {
       {
         type: 'bar',
         name: 'new cases on the day',
-        data: data.todayData,
+        data: todayData,
         itemStyle: {
           normal: {
             label: {
@@ -79,8 +74,8 @@ const getOptions = data => {
   };
 };
 
-export const DailyConfirmedChart = () => (
+export const DailyConfirmedChart = ({id, dailyHistorys, predicts}) => (
   <>
-    <ReactEcharts option={getOptions(dailyChartData)} />
+    <ReactEcharts option={getOptions(id, dailyHistorys, predicts)} />
   </>
 );

@@ -1,0 +1,7 @@
+<% states.forEach(function(state){ %>
+import * as <%- state %> from './<%- state %>' <% }); %>
+
+export const data = {
+  <% states.forEach(function(state){ %>
+    <%- state %>, <% }); %>
+}

@@ -4,21 +4,23 @@ import { DailyConfirmedChart } from './DailyConfirmedChart';
 import { StatisticsChart } from './StatisticsChart';
 import { SourcePieChart } from './SourcePieChart';
 
-export const Chart = () => (
+export const Chart = ({id, dailyHistorys, predicts}) => (
   <>
     <h2 className='ui small header'>Trending:</h2>
     <Grid columns='equal' stackable>
       <Grid.Column>
-        <DailyConfirmedChart />
+        <DailyConfirmedChart id={id} dailyHistorys={dailyHistorys} predicts={predicts}/>
       </Grid.Column>
 
-      <Grid.Column>
+      {(id === 'NSW') && (
+        <><Grid.Column>
         <SourcePieChart />
       </Grid.Column>
-
+      
       <Grid.Column>
         <StatisticsChart />
-      </Grid.Column>
+      </Grid.Column></>
+      )}
     </Grid>
   </>
 );

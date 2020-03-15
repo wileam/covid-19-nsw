@@ -5,16 +5,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  NavLink,
   useParams
 } from 'react-router-dom';
 import { Divider, List } from 'semantic-ui-react';
-import { dailyData, predictedData, summaryData } from './data.js';
 import { updateTime } from './dateTime.js';
+import { data } from './data/';
+import { createBrowserHistory } from 'history';
 
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
 
+const history = createBrowserHistory();
 const disqusShortname = 'covid-19-wileam-com';
 const disqusConfig = {
   url: 'https://covid-19.wileam.com/',
@@ -23,16 +25,31 @@ const disqusConfig = {
 };
 
 const App = () => {
-  const [active, setActive] = useState('Australia');
-  const navList = ['Australia', 'NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT']
+  let defaultActive = window.location.pathname.slice(1) ;
+  if(!defaultActive) {
+    history.push('/NSW');
+    defaultActive = window.location.pathname.slice(1) ;
+  }
+  const [active, setActive] = useState(defaultActive);
+  const navList = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
   return (
-    <Router>
-      <div className='ui container center aligned'>
+    <Router history={history}>
+      <div className='ui container center aligned nav-wrapper'>
         <List link horizontal>
           {navList.map(nav => (
-            <List.Item as='a' active={active === nav} onClick={() => setActive(nav)}>
-              <Link to={nav}>{nav}</Link>
-              </List.Item>
+            <List.Item active={active === nav}>
+              <NavLink
+                exact
+                isActive={(match, location) => {
+                  return location.pathname == `/${nav}`;
+                }}
+                activeClassName="active"
+                to={nav}
+                onClick={() => setActive(nav)}
+              >
+                {nav}
+              </NavLink>
+            </List.Item>
           ))}
         </List>
       </div>
@@ -45,13 +62,11 @@ const App = () => {
 };
 
 function getDataById(id) {
-  return {
-    chartData: {
-      dailyData,
-      predictedData
-    },
-    summaryData
-  };
+  console.log(id);
+  if (id) {
+    return data[id];
+  }
+  return data.NSW; // Todo: seems a bug in react-router that it will render twice, first time is correct and second time is undefined
 }
 
 function Child() {
@@ -62,15 +77,14 @@ function Child() {
   return (
     <div className='ui container'>
       <header>
-        <h1 className='ui header'>CoVid-19 Updates - {id || 'Australia'}</h1>
+        <h1 className='ui header'>CoVid-19 Updates - {id}</h1>
         <small className='ui small'>Site updated: {updateTime} AEDT</small>
       </header>
-
       <ShareButton id={id} />
       <Page id={id} data={data} />
       <Divider />
 
-      <DetailTable />
+      <DetailTable id={id}/>
 
       <Disqus.DiscussionEmbed
         shortname={disqusShortname}
@@ -83,11 +97,20 @@ function Child() {
   );
 }
 
-const Page = ({ data }) => (
+const Page = ({ id, data }) => (
   <>
-    <Summary data={data.summaryData} />
-    <Divider />
-    <Chart data={data.chartData} />
+    <Summary id={id} data={data.todaySummarys} />
+
+    {data.dailyHistorys.length > 5 && (
+      <>
+        <Divider />
+        <Chart
+          id={id}
+          dailyHistorys={data.dailyHistorys}
+          predicts={data.predicts}
+        />
+      </>
+    )}
   </>
 );
 

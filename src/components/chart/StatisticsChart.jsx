@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { stastics } from '../../data';
+import { statistics } from '../../data/statistics';
 
 let totalConfirmed = [],
   wip = [],
   excluded = [],
   totalTested = [];
 
-for (let i = 0; i < stastics.length; i++) {
-  const data = stastics[i];
-  const date = new Date(data[0]);
+for (let i = 0; i < statistics.length; i++) {
+  const data = statistics[i];
+  const date = new Date(data.Date);
 
-  totalConfirmed.push([date, data[1]]);
-  wip.push([date, data[2]]);
-  excluded.push([date, data[3]]);
-  totalTested.push([date, data[4]]);
+  totalConfirmed.push([date, data.confirmed]);
+  wip.push([date, data['under investigation']]);
+  excluded.push([date, data.excluded]);
+  totalTested.push([date, data['total tested']]);
 }
 
 const stasticsData = {

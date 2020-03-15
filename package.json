@@ -11,6 +11,7 @@
     "disqus-react": "^1.0.7",
     "echarts": "^4.6.0",
     "echarts-for-react": "^2.0.15-beta.1",
+    "history": "^4.10.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
@@ -45,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ejs": "^3.0.1"
   }
 }
