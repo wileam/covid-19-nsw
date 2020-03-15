@@ -2,19 +2,19 @@
     export const predicts = [
   {
     "date": "Mar 01, 2020",
-    "predictedTotalConfirmedNumber": 11
+    "predictedTotalConfirmedNumber": 8
   },
   {
     "date": "Mar 02, 2020",
-    "predictedTotalConfirmedNumber": 14
+    "predictedTotalConfirmedNumber": 11
   },
   {
     "date": "Mar 03, 2020",
-    "predictedTotalConfirmedNumber": 16
+    "predictedTotalConfirmedNumber": 14
   },
   {
     "date": "Mar 04, 2020",
-    "predictedTotalConfirmedNumber": 19
+    "predictedTotalConfirmedNumber": 18
   },
   {
     "date": "Mar 05, 2020",
@@ -22,31 +22,31 @@
   },
   {
     "date": "Mar 06, 2020",
-    "predictedTotalConfirmedNumber": 27
+    "predictedTotalConfirmedNumber": 28
   },
   {
     "date": "Mar 07, 2020",
-    "predictedTotalConfirmedNumber": 33
+    "predictedTotalConfirmedNumber": 34
   },
   {
     "date": "Mar 08, 2020",
-    "predictedTotalConfirmedNumber": 39
+    "predictedTotalConfirmedNumber": 41
   },
   {
     "date": "Mar 09, 2020",
-    "predictedTotalConfirmedNumber": 47
+    "predictedTotalConfirmedNumber": 49
   },
   {
     "date": "Mar 10, 2020",
-    "predictedTotalConfirmedNumber": 56
+    "predictedTotalConfirmedNumber": 58
   },
   {
     "date": "Mar 11, 2020",
-    "predictedTotalConfirmedNumber": 67
+    "predictedTotalConfirmedNumber": 69
   },
   {
     "date": "Mar 12, 2020",
-    "predictedTotalConfirmedNumber": 80
+    "predictedTotalConfirmedNumber": 81
   },
   {
     "date": "Mar 13, 2020",
@@ -54,23 +54,23 @@
   },
   {
     "date": "Mar 14, 2020",
-    "predictedTotalConfirmedNumber": 114
+    "predictedTotalConfirmedNumber": 111
   },
   {
     "date": "Mar 15, 2020",
-    "predictedTotalConfirmedNumber": 136
+    "predictedTotalConfirmedNumber": 130
   },
   {
     "date": "Mar 16, 2020",
-    "predictedTotalConfirmedNumber": 162
+    "predictedTotalConfirmedNumber": 151
   },
   {
     "date": "Mar 17, 2020",
-    "predictedTotalConfirmedNumber": 194
+    "predictedTotalConfirmedNumber": 176
   },
   {
     "date": "Mar 18, 2020",
-    "predictedTotalConfirmedNumber": 232
+    "predictedTotalConfirmedNumber": 205
   }
 ];
       
