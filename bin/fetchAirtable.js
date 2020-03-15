@@ -172,12 +172,13 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     `;
   await fs.writeFile(nationalTodaySummaryPath, nationalTodaySummaryTpl);
 
-  const dataPath = path.join(
-    process.cwd(),
-    `src/data/index.js`
-  );
-  const dataTpl = tpl(states);
-  await fs.writeFile(dataPath, dataTpl);
+  /* AUS index START */
+  const ausIndexPath = path.join(process.cwd(), `src/data/AUS/index.js`);
+  const ausIndexTpl = `
+  export * from './todaySummary';
+    `;
+  await fs.writeFile(ausIndexPath, ausIndexTpl);
+  /* AUS index END */
 })().catch(e => {
   console.log(e);
 });
@@ -203,4 +204,11 @@ const tables = ['Statistics', 'Source'];
 
 for (const table of tables) {
   fetchTable(table).catch(e => console.log(e));
+
+  const dataPath = path.join(
+    process.cwd(),
+    `src/data/index.js`
+  );
+  const dataTpl = tpl([...states, 'AUS'], tables.map(table => table.toLowerCase()));
+  fs.writeFile(dataPath, dataTpl);
 }
