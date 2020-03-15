@@ -6,7 +6,6 @@
     "disqus-react": "^1.0.7",
     "echarts": "^4.6.0",
     "echarts-for-react": "^2.0.15-beta.1",
-    "history": "^4.10.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-iframe": "^1.8.0",

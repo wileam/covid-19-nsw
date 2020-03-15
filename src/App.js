@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Disqus from 'disqus-react';
 import { Summary, Chart, DetailTable, Footer, ShareButton } from './components';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   NavLink,
@@ -10,12 +10,10 @@ import {
 import { Divider, List } from 'semantic-ui-react';
 import { updateTime } from './dateTime.js';
 import { data } from './data/';
-import { createBrowserHistory } from 'history';
 
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
 
-const history = createBrowserHistory();
 const disqusShortname = 'covid-19-wileam-com';
 const disqusConfig = {
   url: 'https://covid-19.wileam.com/',
@@ -24,15 +22,15 @@ const disqusConfig = {
 };
 
 const App = () => {
-  let defaultActive = window.location.pathname.slice(1);
-  if (!defaultActive) {
-    history.push('/NSW');
-    defaultActive = window.location.pathname.slice(1);
+  let defaultActive = window.location.hash.slice(2);
+  if(defaultActive === ''){
+    window.location.hash = '#/NSW';
+    defaultActive = 'NSW';
   }
   const [active, setActive] = useState(defaultActive);
   const navList = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
   return (
-    <Router history={history}>
+    <Router>
       <div className='ui container center aligned nav-wrapper'>
         <List link horizontal>
           {navList.map(nav => (
