@@ -6,7 +6,6 @@ import {
   Switch,
   Route,
   NavLink,
-  useParams
 } from 'react-router-dom';
 import { Divider, List } from 'semantic-ui-react';
 import { updateTime } from './dateTime.js';
@@ -60,7 +59,6 @@ const App = () => {
           </Route>
         ))}
       </Switch>
-      <Child />
     </Router>
   );
 };

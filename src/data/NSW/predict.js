@@ -67,6 +67,10 @@
   {
     "date": "Mar 17, 2020",
     "predictedTotalConfirmedNumber": 194
+  },
+  {
+    "date": "Mar 18, 2020",
+    "predictedTotalConfirmedNumber": 232
   }
 ];
       

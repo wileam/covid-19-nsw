@@ -9,7 +9,7 @@ export const Summary = ({ id, data }) => {
     totalRecoveredNumber,
     totalDeathNumber,
     totalRemianNumber,
-    todayNewNumber
+    todayNewNumber,
   } = data;
   const statistic = statistics.filter(statistic => statistic.State === id)[0];
   let wip, excluded, totalTested;
@@ -18,6 +18,7 @@ export const Summary = ({ id, data }) => {
     excluded = statistic.excluded;
     totalTested = statistic['total tested'];
   }
+
   return (
     <div className='summary'>
       <h2 className='ui small header'>Summary data:</h2>

@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-const Airtable = require('airtable');
-const moment = require('moment');
-const tz = require('moment-timezone');
-const fs = require('fs');
-const path = require('path');
-const _ = require('lodash');
-const assert = require('assert');
+
+const Airtable = require("airtable");
+const moment = require("moment");
+const tz = require("moment-timezone");
+const fs = require("fs");
+const path = require("path");
+const uniqBy = require("lodash.uniqby");
+const assert = require("assert");
 
 assert(process.env.BASE_ID, 'Please set BASE_ID!');
 assert(process.env.AIRTABLE_API_KEY, 'Please set AIRTABLE_API_KEY!');
@@ -62,7 +63,7 @@ function getSummaryByDate(records, dateString) {
 }
 
 function dailyHistory(records) {
-  const uniqRecords = _.uniqBy(records, e => e.get('Diagnosis'));
+  const uniqRecords = uniqBy(records, e => e.get("Diagnosis"));
   const dailySummaryHistory = [];
   for (let i = uniqRecords.length - 1; i >= 0; i--) {
     const record = uniqRecords[i];
