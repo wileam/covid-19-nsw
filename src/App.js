@@ -108,17 +108,17 @@ function Child({ id }) {
           />
         </>
       )}
-      <Divider />
 
       {id !== 'AUS' && <DetailTable id={id} />}
+
+      <Footer />
+
+      <Divider />
 
       <Disqus.DiscussionEmbed
         shortname={disqusShortname}
         config={disqusConfig}
       />
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }

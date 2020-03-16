@@ -6,11 +6,11 @@ export const AuthorModal = () => (
     trigger={
       // eslint-disable-next-line
       <a href='#' onClick={e => e.preventDefault()}>
-        Joanna and her friends (Disclaimer)
+        Joanna and her friends
       </a>
     }
   >
-    <Modal.Header>Team, Thanks and Disclaimer</Modal.Header>
+    <Modal.Header>Team, Thanks and Contact</Modal.Header>
     <Modal.Content>
       <Modal.Description>
         <Header>Team member</Header>
@@ -20,17 +20,18 @@ export const AuthorModal = () => (
             website, update the data.
           </List.Item>
           <List.Item>
-            <a href='https://ngot.me/'>Henry Zhuang</a>: devops and update the
+            <a href='https://ngot.me/'>Henry Zhuang</a>: developer, automate the data fetching and update the
             data
           </List.Item>
           <List.Item>
-            <a href='https://ivanfan.net/'>Ivan(Yifan) Fan</a>: developer, add regression prediction functionality
+            <a href='https://ivanfan.net/'>Ivan(Yifan) Fan</a>: developer, add
+            regression prediction functionality
           </List.Item>
+          <List.Item>Nan Zhang, update and analysis the data.</List.Item>
           <List.Item>
             <a href='https://www.sydneytoday.com/'>Sydney Today</a>: media,
             provide updated data from NSW Health
           </List.Item>
-          <List.Item>Nan Zhang, update and analysis the data.</List.Item>
         </List>
 
         <Header>Thanks to</Header>
@@ -42,18 +43,15 @@ export const AuthorModal = () => (
             <a href='https://airtable.com/'>airtable</a>
           </List.Item>
         </List>
-        <Header>Disclaimer</Header>
+
+        <Header>Contact</Header>
         <List bulleted>
           <List.Item>
-          The views and options expressed in this blog are those of the authors and do not necessarily reflect the official policy or position of any other agency, organization, employer or company
+          Join telegram group{' '}
+            <a href='https://t.me/covid_19_au'>@covid_19_au</a>
           </List.Item>
           <List.Item>
-          Authors are not responsible for any errors or omissions, or for the results obtained from the use of this information. All information in this site is provided "as is", with no guarantee of completeness, accuracy, timeliness or of the results obtained from the use of this information
-          </List.Item>
-          <List.Item>
-            We do not make any warranties about the completeness, reliability and accuracy of these information.
-            None of the authors, contributors, adminstrators or anyone else connected with this website, in anyway whatsoever, can be responsible for your use of the information contained in or linked from these web pages.
-            Any action you take upon the information on this website is strictly at your own risk. and we will not be liable for any losses and damages in connection with the use of our website.
+            Email: <a href='mailto: joanna_wu@live.com'>joanna_wu@live.com</a>
           </List.Item>
         </List>
       </Modal.Description>
