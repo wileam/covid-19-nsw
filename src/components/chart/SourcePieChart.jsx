@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { sourceData } from '../../data';
 
-const getOptions = data => {
+const getOptions = source => {
+  let data = [];
+  for (const key in source) {
+    if (source.hasOwnProperty(key) && typeof source[key] === 'number') {
+      data.push({
+        name: key,
+        value: source[key]
+      })
+    }
+  }
   return {
     legend: {
       orient: 'vertical',
@@ -38,8 +46,8 @@ const getOptions = data => {
   };
 };
 
-export const SourcePieChart = () => (
+export const SourcePieChart = ({source}) => (
   <>
-    <ReactEcharts option={getOptions(sourceData)} />
+    <ReactEcharts option={getOptions(source)} />
   </>
 );

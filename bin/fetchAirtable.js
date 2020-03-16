@@ -89,6 +89,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
 
 (async () => {
   let nationalTodaySummary = [];
+  let nationalDailyHistory = [];
   for (let i = 0; i < states.length; i++) {
     const name = states[i];
     console.log(`fetching ${name}'s data...`);
@@ -114,6 +115,7 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
 
     /* dailyHistorys START */
     const dailyHistorys = dailyHistory(records).filter(dailyHistory => !dailyHistory.hide);
+    nationalDailyHistory.push(dailyHistorys);
     const dailyHistorysTpl = `
   export const dailyHistorys = ${JSON.stringify(dailyHistorys, null, 2)};
     `;

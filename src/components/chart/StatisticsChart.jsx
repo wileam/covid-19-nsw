@@ -1,30 +1,20 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { statistics } from '../../data/statistics';
 
-let totalConfirmed = [],
-  wip = [],
-  excluded = [],
-  totalTested = [];
+const getOptions = statistics => {
+  let totalConfirmed = [],
+    wip = [],
+    excluded = [],
+    totalTested = [];
+  for (let i = 0; i < statistics.length; i++) {
+    const data = statistics[i];
+    const date = new Date(data.Date);
 
-for (let i = 0; i < statistics.length; i++) {
-  const data = statistics[i];
-  const date = new Date(data.Date);
-
-  totalConfirmed.push([date, data.confirmed]);
-  wip.push([date, data['under investigation']]);
-  excluded.push([date, data.excluded]);
-  totalTested.push([date, data['total tested']]);
-}
-
-const stasticsData = {
-  totalConfirmed,
-  wip,
-  excluded,
-  totalTested
-};
-
-const getOptions = data => {
+    totalConfirmed.push([date, data.confirmed]);
+    wip.push([date, data['under investigation']]);
+    excluded.push([date, data.excluded]);
+    totalTested.push([date, data['total tested']]);
+  }
   return {
     legend: {
       show: true
@@ -50,17 +40,17 @@ const getOptions = data => {
       {
         type: 'line',
         name: 'total confirmed',
-        data: data.totalConfirmed
+        data: totalConfirmed
       },
-      { type: 'line', name: 'under investigation', data: data.wip },
-      { type: 'line', name: 'tested and excluded', data: data.excluded },
-      { type: 'line', name: 'total tested', data: data.totalTested }
+      { type: 'line', name: 'under investigation', data: wip },
+      { type: 'line', name: 'tested and excluded', data: excluded },
+      { type: 'line', name: 'total tested', data: totalTested }
     ]
   };
 };
 
-export const StatisticsChart = () => (
+export const StatisticsChart = ({ statistics }) => (
   <>
-    <ReactEcharts option={getOptions(stasticsData)} />
+    <ReactEcharts option={getOptions(statistics)} />
   </>
 );

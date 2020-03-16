@@ -34,6 +34,11 @@
     "date": "Mar 14, 2020",
     "todayNewNumber": 3,
     "totalConfirmedNumber": 19
+  },
+  {
+    "date": "Mar 15, 2020",
+    "todayNewNumber": 1,
+    "totalConfirmedNumber": 20
   }
 ];
     

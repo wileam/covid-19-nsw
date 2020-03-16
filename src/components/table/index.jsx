@@ -10,9 +10,9 @@ const STATE_KEY_MAP = {
   TAS: 'shrfEwUbg7HbtyIOm',
   NT: 'shrrueAhnuETjOJVW',
   ACT: 'shrmTt5x64kBoIHOs'
-}
+};
 
-export const DetailTable = ({id}) => (
+export const DetailTable = ({ id }) => (
   <>
     <h2 className='ui small header'>
       Confirmed cases details(best view on desktop):

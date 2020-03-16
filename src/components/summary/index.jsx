@@ -1,16 +1,15 @@
 import React from 'react';
 import { Grid, Statistic, Table } from 'semantic-ui-react';
-import { statistics } from '../../data/statistics';
 import './index.scss';
 
-export const Summary = ({ id, data }) => {
+export const Summary = ({ id, todaySummarys, statistics }) => {
   const {
     totalConfirmedNumber,
     totalRecoveredNumber,
     totalDeathNumber,
     totalRemianNumber,
     todayNewNumber,
-  } = data;
+  } = todaySummarys;
   const statistic = statistics.filter(statistic => statistic.State === id)[0];
   let wip, excluded, totalTested;
   if (statistic) {
@@ -27,7 +26,7 @@ export const Summary = ({ id, data }) => {
           <Statistic color='blue' label='Remain' value={totalRemianNumber} />
         </Grid.Column>
         <Grid.Column>
-          <Statistic label='Total' value={totalConfirmedNumber} />
+          <Statistic color='red' label='Total' value={totalConfirmedNumber} />
         </Grid.Column>
         <Grid.Column>
           <Statistic color='grey' label='Death' value={totalDeathNumber} />
