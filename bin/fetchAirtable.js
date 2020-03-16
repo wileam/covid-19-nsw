@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const Airtable = require("airtable");
-const moment = require("moment");
-const tz = require("moment-timezone");
-const fs = require("fs").promises;
-const path = require("path");
-const uniqBy = require("lodash.uniqby");
-const assert = require("assert");
+const Airtable = require('airtable');
+const moment = require('moment');
+const tz = require('moment-timezone');
+const fs = require('fs').promises;
+const path = require('path');
+const uniqBy = require('lodash.uniqby');
+const assert = require('assert');
 
 assert(process.env.BASE_ID, 'Please set BASE_ID!');
 assert(process.env.AIRTABLE_API_KEY, 'Please set AIRTABLE_API_KEY!');
@@ -36,6 +36,7 @@ function getSummaryByDate(records, dateString) {
   const todayRecords = [];
   const recoveredRecords = [];
   const deathRecords = [];
+  const otherStateRecords = [];
 
   records.forEach(record => {
     if (dateString === record.get('Diagnosis')) {
@@ -47,6 +48,11 @@ function getSummaryByDate(records, dateString) {
     if ('death' === record.get('Status')) {
       deathRecords.push(record);
     }
+    if (record.get("other state's resident")) {
+      otherStateRecords.push({
+        status: record.get('Status')
+      });
+    }
   });
 
   const totalRemianNumber =
@@ -57,23 +63,26 @@ function getSummaryByDate(records, dateString) {
     totalRecoveredNumber: recoveredRecords.length,
     totalDeathNumber: deathRecords.length,
     totalRemianNumber,
-    todayNewNumber: todayRecords.length
+    todayNewNumber: todayRecords.length,
+    otherStateRecords
   };
 }
 
 function dailyHistory(records) {
-  const uniqRecords = uniqBy(records, e => e.get("Diagnosis"));
+  const uniqRecords = uniqBy(records, e => e.get('Diagnosis'));
   const dailySummaryHistory = [];
   for (let i = uniqRecords.length - 1; i >= 0; i--) {
     const record = uniqRecords[i];
     const date = record.get('Diagnosis');
     const hide = record.get('hide');
+    const isOtherState = record.get("other state's resident");
     const summary = getSummaryByDate(records, date);
     dailySummaryHistory.push({
       date: moment(date).format('MMM DD, Y'),
       todayNewNumber: summary.todayNewNumber,
       totalConfirmedNumber: summary.totalConfirmedNumber,
-      hide
+      hide,
+      isOtherState
     });
   }
   return dailySummaryHistory;
@@ -114,7 +123,9 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     /* todaySummarys END */
 
     /* dailyHistorys START */
-    const dailyHistorys = dailyHistory(records).filter(dailyHistory => !dailyHistory.hide);
+    const dailyHistorys = dailyHistory(records).filter(
+      dailyHistory => !dailyHistory.hide
+    );
     nationalDailyHistory.push(dailyHistorys);
     const dailyHistorysTpl = `
   export const dailyHistorys = ${JSON.stringify(dailyHistorys, null, 2)};
@@ -149,21 +160,29 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
     await sleep(500);
   }
 
-  nationalTodaySummary = nationalTodaySummary.reduce((a, b) => {
-    return {
-      totalConfirmedNumber: a.totalConfirmedNumber + b.totalConfirmedNumber,
-      totalRecoveredNumber: a.totalRecoveredNumber + b.totalRecoveredNumber,
-      totalDeathNumber: a.totalDeathNumber + b.totalDeathNumber,
-      totalRemianNumber: a.totalRemianNumber + b.totalRemianNumber,
-      todayNewNumber: a.todayNewNumber + b.todayNewNumber,
+  nationalTodaySummary = nationalTodaySummary.reduce(
+    (a, b) => {
+      if (a.otherStateRecords && b.otherStateRecords) {
+        otherStateRecords = [...a.otherStateRecords, ...b.otherStateRecords];
+      }
+      return {
+        totalConfirmedNumber: a.totalConfirmedNumber + b.totalConfirmedNumber,
+        totalRecoveredNumber: a.totalRecoveredNumber + b.totalRecoveredNumber,
+        totalDeathNumber: a.totalDeathNumber + b.totalDeathNumber,
+        totalRemianNumber: a.totalRemianNumber + b.totalRemianNumber,
+        todayNewNumber: a.todayNewNumber + b.todayNewNumber,
+        otherStateRecords
+      };
+    },
+    {
+      totalConfirmedNumber: 0,
+      totalRecoveredNumber: 0,
+      totalDeathNumber: 0,
+      totalRemianNumber: 0,
+      todayNewNumber: 0,
+      otherStateRecords: []
     }
-  }, {
-    totalConfirmedNumber: 0,
-    totalRecoveredNumber: 0,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 0,
-  });
+  );
 
   const nationalTodaySummaryPath = path.join(
     process.cwd(),
@@ -187,11 +206,14 @@ const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
 
 async function fetchTable(table, view = 'Grid view', maxRecords = 500) {
   console.log(`fetching ${table}'s data...`);
-  const filePath = path.join(process.cwd(), `src/data/${table.toLowerCase()}.js`);
+  const filePath = path.join(
+    process.cwd(),
+    `src/data/${table.toLowerCase()}.js`
+  );
   let items = await base(table)
     .select({
       maxRecords,
-      view,
+      view
     })
     .all();
 
@@ -207,10 +229,10 @@ const tables = ['Statistics', 'Source'];
 for (const table of tables) {
   fetchTable(table).catch(e => console.log(e));
 
-  const dataPath = path.join(
-    process.cwd(),
-    `src/data/index.js`
+  const dataPath = path.join(process.cwd(), `src/data/index.js`);
+  const dataTpl = tpl(
+    [...states, 'AUS'],
+    tables.map(table => table.toLowerCase())
   );
-  const dataTpl = tpl([...states, 'AUS'], tables.map(table => table.toLowerCase()));
   fs.writeFile(dataPath, dataTpl);
 }
