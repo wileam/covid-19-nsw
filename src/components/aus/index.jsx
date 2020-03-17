@@ -41,7 +41,7 @@ export const AusSummary = ({ id, data }) => {
           <Table.Row textAlign='center'>
             <Table.HeaderCell>State</Table.HeaderCell>
             <Table.HeaderCell>Active</Table.HeaderCell>
-            <Table.HeaderCell>Total</Table.HeaderCell>
+            <Table.HeaderCell>Total(+New)</Table.HeaderCell>
             <Table.HeaderCell>Total death</Table.HeaderCell>
             <Table.HeaderCell>Total recover</Table.HeaderCell>
           </Table.Row>
@@ -68,8 +68,9 @@ export const AusSummary = ({ id, data }) => {
                 </Table.Cell>
                 <Table.Cell>
                   <strong>{todaySummary.totalConfirmedNumber - otherStateNumber}
-                  {otherStateNumber !== 0 && <>*</>}{todaySummary.todayNewNumber !== 0 && <>(+
-                  {todaySummary.todayNewNumber})</>}</strong>
+                  {otherStateNumber !== 0 && <>*</>}</strong>
+                  {todaySummary.todayNewNumber !== 0 && <>(+
+                  {todaySummary.todayNewNumber})</>}
                 </Table.Cell>
                 <Table.Cell>
                   {todaySummary.totalDeathNumber - otherStateDeathNumber}
