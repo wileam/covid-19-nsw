@@ -19,10 +19,10 @@ export const BuyCoffeeModal = () => (
     <Modal.Header>Buy me a coffee</Modal.Header>
     <Modal.Content>
       <Modal.Description>
-        <Grid textAlign='center' columns='equal'>
+        <Grid textAlign='center' columns='equal' stackable>
           <Grid.Row>
             <Grid.Column>
-              <div>
+              <div style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
                 <img src='./beem.svg' alt='beemit logo' width='80px' />
                 <img
                   src='./beemit.jpg'
