@@ -31,7 +31,7 @@ export const AusSummary = ({ id, data }) => {
         <Grid.Column>
           <Statistic
             color='green'
-            label='Recover'
+            label='Recovered'
             value={totalRecoveredNumber - otherStateRecords.filter(r => r.status === 'dispatched').length}
           />
         </Grid.Column>
