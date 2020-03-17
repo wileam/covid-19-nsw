@@ -43,7 +43,7 @@ export const AusSummary = ({ id, data }) => {
             <Table.HeaderCell>Active</Table.HeaderCell>
             <Table.HeaderCell>Total(+New)</Table.HeaderCell>
             <Table.HeaderCell>Total death</Table.HeaderCell>
-            <Table.HeaderCell>Total recover</Table.HeaderCell>
+            <Table.HeaderCell>Total recovered</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         {states.map(state => {

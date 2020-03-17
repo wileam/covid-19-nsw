@@ -49,7 +49,7 @@ export const Summary = ({ id, todaySummarys, statistics }) => {
         <Grid.Column>
           <Statistic
             color='green'
-            label='Recover'
+            label='Recovered'
             value={totalRecoveredNumber}
           />
         </Grid.Column>
