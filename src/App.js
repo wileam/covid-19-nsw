@@ -12,6 +12,7 @@ import { HashRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import { Divider, List } from 'semantic-ui-react';
 import { updateTime } from './dateTime.js';
 import { data } from './data/index';
+import { default as states } from './states.json';
 
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
@@ -28,7 +29,7 @@ const SHOW_AUS_PAGE = localStorage.getItem('SHOW_AUS_PAGE') || true;
 const App = () => {
   let defaultPage = SHOW_AUS_PAGE ? 'AUS' : 'NSW';
   let initPageFromURL = window.location.hash.slice(2);
-  if (initPageFromURL === '') {
+  if (initPageFromURL === '' || states.indexOf(initPageFromURL) === -1) {
     window.location.hash = '#/' + defaultPage;
     initPageFromURL = defaultPage;
   }
