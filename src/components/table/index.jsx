@@ -3,13 +3,13 @@ import Iframe from 'react-iframe';
 
 const STATE_KEY_MAP = {
   NSW: 'shrHnMyzvf1Nk5BPT',
-  VIC: 'shrKh4I4XuWbUr0mh',
-  QLD: 'shrqzrS1Px0JXrM4h',
-  WA: 'shrY62a2829RpTIfn',
-  SA: 'shrGGCzlLOETWFzNd',
-  TAS: 'shrfEwUbg7HbtyIOm',
-  NT: 'shrrueAhnuETjOJVW',
-  ACT: 'shrmTt5x64kBoIHOs'
+  VIC: 'shryP6pmTPm1Hi6Nt',
+  QLD: 'shr7Kd0OWiUd6qNLT',
+  WA: 'shr2IAnS3MD3V5X6m',
+  SA: 'shrPSFdpFVlS9Id0k',
+  TAS: 'shrNeRFhnBF6TPZh8',
+  NT: 'shrMN0rzKqccZlkkz',
+  ACT: 'shrVyShDBACC74FbQ'
 };
 
 export const DetailTable = ({ id }) => (
