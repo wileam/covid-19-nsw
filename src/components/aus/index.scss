@@ -1,4 +1,10 @@
 .today-new-number {
   position: absolute;
-  top: 8px;
+  top: 0;
+}
+
+.summary {
+  .ui.statistic {
+    margin-top: 0;
+  }
 }
