@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Disqus from 'disqus-react';
 import {
-  AusSummary,
+  AusPage,
   Summary,
   Chart,
   DetailTable,
@@ -88,7 +88,7 @@ function Child({ id }) {
       </header>
       <ShareButton />
       {id === 'AUS' ? (
-        <AusSummary id={id} data={data} />
+        <AusPage id={id} data={data} />
       ) : (
         <Summary
           id={id}
