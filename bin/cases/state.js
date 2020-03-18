@@ -8,9 +8,9 @@ function filterRecordsByState(records, state) {
 
 async function generateDataByState(records, state) {
   records = filterRecordsByState(records, state);
+  let dailyHistorys = dailyHistory(records);
   // Hide the hidden records
-  records = records.filter(({ HIDE }) => !HIDE);
-  const dailyHistorys = dailyHistory(records);
+  dailyHistorys = dailyHistorys.filter(({ hide }) => !hide);
   const predicts = predict(dailyHistorys, state);
   await writeDataFile(state, dailyHistorys, predicts);
 }
