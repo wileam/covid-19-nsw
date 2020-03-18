@@ -1,18 +1,41 @@
 export const source = [
   {
-    Date: '2020-03-16',
-    State: 'VIC',
+    Date: '2020-03-18',
+    overseas: 114,
+    'contact of confirmed case': 63,
+    'not identified': 26,
+    'under investigation': 64,
+    State: 'NSW'
+  },
+  {
+    Date: '2020-03-17',
+    overseas: 90,
+    'contact of confirmed case': 54,
+    'not identified': 24,
+    'under investigation': 42,
+    State: 'NSW'
+  },
+  {
+    Date: '2020-03-17',
     'not identified': 2,
-    'under investigation': 6,
+    'under investigation': 29,
+    State: 'VIC',
     'oversea or contact of confirmed cases': 63
   },
   {
     Date: '2020-03-16',
-    State: 'NSW',
+    'not identified': 2,
+    'under investigation': 6,
+    State: 'VIC',
+    'oversea or contact of confirmed cases': 63
+  },
+  {
+    Date: '2020-03-16',
     overseas: 67,
     'contact of confirmed case': 44,
+    'not identified': 17,
     'under investigation': 43,
-    'not identified': 17
+    State: 'NSW'
   },
   {
     Date: '2020-03-15',

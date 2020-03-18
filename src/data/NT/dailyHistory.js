@@ -1,8 +1,18 @@
 export const dailyHistorys = [
   {
     date: 'Mar 10, 2020',
-    todayNewNumber: 1,
     totalConfirmedNumber: 1,
-    isOtherState: true
+    totalRecoveredNumber: 0,
+    totalDeathNumber: 0,
+    totalRemianNumber: 1,
+    todayNewNumber: 1,
+    otherStateNumber: {
+      all: 1,
+      active: 1,
+      death: 0,
+      discharged: 0
+    },
+    hide: false,
+    hasOtherState: true
   }
 ];

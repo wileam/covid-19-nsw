@@ -1,0 +1,15 @@
+{
+  "NO": "No",
+  "DIAGNOSIS": "Diagnosis",
+  "STATUS": "Status",
+  "DETAILS": "Details",
+  "SOURCE": "source",
+  "STATE": "state",
+  "UPDATED": "updated",
+  "HIDE": "hide",
+  "ORIGINATE_TYPE": "Originate Type",
+  "OTHER_STATE_RESIDENT": "other state's resident",
+  "SUBURB": "Suburb",
+  "GENDER": "Gender",
+  "AGE": "Age"
+}

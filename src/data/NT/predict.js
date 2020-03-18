@@ -1,8 +1,6 @@
-
-    export const predicts = [
+export const predicts = [
   {
-    "date": "Mar 10, 2020",
-    "predictedTotalConfirmedNumber": 0
+    date: 'Mar 10, 2020',
+    predictedTotalConfirmedNumber: 0
   }
 ];
-      

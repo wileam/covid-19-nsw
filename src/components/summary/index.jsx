@@ -23,7 +23,7 @@ export const Summary = ({ id, todaySummarys, statistics }) => {
     totalDeathNumber,
     totalRemianNumber,
     todayNewNumber,
-    otherStateRecords
+    otherStateNumber
   } = todaySummarys;
   const statistic = statistics.filter(statistic => statistic.State === id)[0];
   let wip, excluded, totalTested;
@@ -92,11 +92,11 @@ export const Summary = ({ id, todaySummarys, statistics }) => {
           {id} Health
         </a>
       </p>
-      {otherStateRecords.length !== 0 && (
+      {otherStateNumber.all !== 0 && (
         <>
           <p className='ui small'>
-            {otherStateRecords.length}{' '}
-            {otherStateRecords.length === 1 ? (
+            {otherStateNumber.all}{' '}
+            {otherStateNumber.all === 1 ? (
               <>case is other state's resident</>
             ) : (
               <>cases are other state's residents</>

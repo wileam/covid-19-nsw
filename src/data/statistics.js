@@ -1,27 +1,97 @@
 export const statistics = [
   {
-    'calc total': 71,
+    Date: '2020-03-18',
+    State: 'NSW',
+    confirmed: 267,
+    'under investigation': 2146,
+    'total tested': 35800,
+    excluded: 33387,
+    'calc total': 35800
+  },
+  {
+    'calc total': 35,
+    Date: '2020-03-18',
+    State: 'WA',
+    confirmed: 35,
+    'total tested': 7039
+  },
+  {
+    'calc total': 1567,
+    Date: '2020-03-18',
+    State: 'ACT',
+    excluded: 1564,
+    confirmed: 3,
+    'total tested': 1567
+  },
+  {
+    Date: '2020-03-17',
+    State: 'NSW',
+    confirmed: 210,
+    'under investigation': 1482,
+    'total tested': 30244,
+    excluded: 28552,
+    'calc total': 30244
+  },
+  {
+    Date: '2020-03-17',
+    State: 'ACT',
+    confirmed: 2,
+    'total tested': 1391,
+    excluded: 1389,
+    'calc total': 1391
+  },
+  {
+    Date: '2020-03-17',
+    State: 'SA',
+    confirmed: 32,
+    'total tested': 3799,
+    'calc total': 32
+  },
+  {
+    Date: '2020-03-17',
+    State: 'WA',
+    confirmed: 31,
+    'total tested': 6613,
+    excluded: 6582,
+    'calc total': 6613
+  },
+  {
+    Date: '2020-03-17',
+    State: 'VIC',
+    confirmed: 94,
+    'total tested': 14200,
+    'calc total': 94
+  },
+  {
     Date: '2020-03-16',
     State: 'VIC',
-    'total tested': 17000,
-    confirmed: 71
+    confirmed: 71,
+    'total tested': 11700,
+    'calc total': 71
   },
   {
-    'calc total': 1151,
     Date: '2020-03-16',
     State: 'ACT',
-    excluded: 1149,
     confirmed: 2,
-    'total tested': 1151
+    'total tested': 1151,
+    excluded: 1149,
+    'calc total': 1151
   },
   {
-    'calc total': 26964,
     Date: '2020-03-16',
     State: 'NSW',
     confirmed: 171,
     'under investigation': 1282,
+    'total tested': 26964,
     excluded: 25511,
-    'total tested': 26964
+    'calc total': 26964
+  },
+  {
+    Date: '2020-03-16',
+    State: 'WA',
+    'total tested': 5878,
+    excluded: 5878,
+    'calc total': 5878
   },
   {
     Date: '2020-03-15',
@@ -36,6 +106,7 @@ export const statistics = [
     Date: '2020-03-15',
     State: 'WA',
     confirmed: 18,
+    'total tested': 5442,
     excluded: 5424,
     'calc total': 5442
   },
