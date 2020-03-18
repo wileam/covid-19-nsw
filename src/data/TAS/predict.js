@@ -21,18 +21,22 @@ export const predicts = [
   },
   {
     date: 'Mar 15, 2020',
-    predictedTotalConfirmedNumber: 7
-  },
-  {
-    date: 'Mar 16, 2020',
-    predictedTotalConfirmedNumber: 9
-  },
-  {
-    date: 'Mar 17, 2020',
-    predictedTotalConfirmedNumber: 11
+    predictedTotalConfirmedNumber: 8
   },
   {
     date: 'Mar 18, 2020',
-    predictedTotalConfirmedNumber: 13
+    predictedTotalConfirmedNumber: 10
+  },
+  {
+    date: 'Mar 19, 2020',
+    predictedTotalConfirmedNumber: 12
+  },
+  {
+    date: 'Mar 20, 2020',
+    predictedTotalConfirmedNumber: 15
+  },
+  {
+    date: 'Mar 21, 2020',
+    predictedTotalConfirmedNumber: 18
   }
 ];

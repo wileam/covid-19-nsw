@@ -13,15 +13,15 @@ export const predicts = [
   },
   {
     date: 'Mar 08, 2020',
-    predictedTotalConfirmedNumber: 4
+    predictedTotalConfirmedNumber: 5
   },
   {
     date: 'Mar 09, 2020',
-    predictedTotalConfirmedNumber: 6
+    predictedTotalConfirmedNumber: 7
   },
   {
     date: 'Mar 11, 2020',
-    predictedTotalConfirmedNumber: 9
+    predictedTotalConfirmedNumber: 10
   },
   {
     date: 'Mar 13, 2020',
@@ -29,7 +29,7 @@ export const predicts = [
   },
   {
     date: 'Mar 14, 2020',
-    predictedTotalConfirmedNumber: 17
+    predictedTotalConfirmedNumber: 16
   },
   {
     date: 'Mar 15, 2020',
@@ -37,18 +37,26 @@ export const predicts = [
   },
   {
     date: 'Mar 16, 2020',
-    predictedTotalConfirmedNumber: 26
+    predictedTotalConfirmedNumber: 25
   },
   {
     date: 'Mar 17, 2020',
-    predictedTotalConfirmedNumber: 32
+    predictedTotalConfirmedNumber: 31
   },
   {
     date: 'Mar 18, 2020',
-    predictedTotalConfirmedNumber: 39
+    predictedTotalConfirmedNumber: 36
   },
   {
     date: 'Mar 19, 2020',
-    predictedTotalConfirmedNumber: 46
+    predictedTotalConfirmedNumber: 42
+  },
+  {
+    date: 'Mar 20, 2020',
+    predictedTotalConfirmedNumber: 49
+  },
+  {
+    date: 'Mar 21, 2020',
+    predictedTotalConfirmedNumber: 56
   }
 ];

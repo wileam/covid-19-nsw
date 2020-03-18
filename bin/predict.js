@@ -1,17 +1,17 @@
-const moment = require("moment");
-const PolynomialRegression = require( 'ml-regression-polynomial');
+const moment = require('moment');
+const PolynomialRegression = require('ml-regression-polynomial');
 const ExpReg = require('exponential-regression').ExpReg;
 
-
 const stateModelMapping = {
-  'NSW': 'ER',
-  'VIC': 'PR',
-  'QLD': 'PR',
-  'WA': 'PR',
-  'SA': 'PR',
-  'TAS': 'PR',
-  'NT': 'PR',
-  'ACT': 'PR'
+  AUS: 'ER',
+  NSW: 'ER',
+  VIC: 'PR',
+  QLD: 'PR',
+  WA: 'PR',
+  SA: 'PR',
+  TAS: 'PR',
+  NT: 'PR',
+  ACT: 'PR'
 };
 
 // Exponential Regression prediction
@@ -21,12 +21,13 @@ function predictTotalResultWithExpR(day, params) {
   const regC = params['c'];
   return Math.round(regA + regB * Math.exp(regC * day));
 }
+
 // Polynomial Regression
 function predictTotalResultWithPR(day, params) {
   const regA = params[0];
   const regB = params[1];
   const regC = params[2];
-  return Math.round(regA + regB * day +regC * day * day)
+  return Math.round(regA + regB * day + regC * day * day);
 }
 
 function getModelInitAlgorithm(xRaw, yRaw, regressionName) {
@@ -47,7 +48,7 @@ function predictTotalResult(day, params, regressionName) {
 }
 
 function formatDate(date) {
-  return moment(date).format("MMM DD, Y");
+  return moment(date).format('MMM DD, Y');
 }
 
 function predictNext(startDays, startDate, nextDays, params, mappedModel) {
@@ -57,7 +58,11 @@ function predictNext(startDays, startDate, nextDays, params, mappedModel) {
     date.setDate(date.getDate() + i);
     predictedData.push({
       date: formatDate(date),
-      predictedTotalConfirmedNumber: predictTotalResult(startDays + i, params, mappedModel)
+      predictedTotalConfirmedNumber: predictTotalResult(
+        startDays + i,
+        params,
+        mappedModel
+      )
     });
   }
   return predictedData;

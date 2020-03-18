@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Statistic, Table } from 'semantic-ui-react';
 import './index.scss';
+import { default as states } from '../../states.json';
 
 export const AusSummary = ({ id, data }) => {
   const {
@@ -9,30 +10,28 @@ export const AusSummary = ({ id, data }) => {
     totalDeathNumber,
     totalRemianNumber,
     todayNewNumber,
-    otherStateRecords
+    otherStateNumber
   } = data[id].todaySummarys;
-
-  const states = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT'];
 
   return (
     <div className='summary'>
       <h2 className='ui small header'>Summary data:</h2>
       <Grid columns='equal'>
         <Grid.Column>
-          <Statistic color='blue' label='Active' value={totalRemianNumber - otherStateRecords.filter(r => r.status === 'active').length} />
+          <Statistic color='blue' label='Active' value={totalRemianNumber - otherStateNumber.active} />
         </Grid.Column>
         <Grid.Column>
           {todayNewNumber !== 0 && <span className='small ui today-new-number'>+{todayNewNumber}</span>}
-          <Statistic color='red' label='Total' value={totalConfirmedNumber - otherStateRecords.length} />
+          <Statistic color='red' label='Total' value={totalConfirmedNumber - otherStateNumber.all} />
         </Grid.Column>
         <Grid.Column>
-          <Statistic color='grey' label='Death' value={totalDeathNumber - otherStateRecords.filter(r => r.status === 'death').length} />
+          <Statistic color='grey' label='Death' value={totalDeathNumber - otherStateNumber.death} />
         </Grid.Column>
         <Grid.Column>
           <Statistic
             color='green'
             label='Recovered'
-            value={totalRecoveredNumber - otherStateRecords.filter(r => r.status === 'dispatched').length}
+            value={totalRecoveredNumber - otherStateNumber.discharged}
           />
         </Grid.Column>
       </Grid>
@@ -48,16 +47,11 @@ export const AusSummary = ({ id, data }) => {
         </Table.Header>
         {states.map(state => {
           const todaySummary = data[state].todaySummarys;
-          const otherStateNumber = todaySummary.otherStateRecords.length;
-          const otherStateActiveNumber = todaySummary.otherStateRecords.filter(
-            record => record.status === 'active'
-          ).length;
-          const otherStateRecoverNumber = todaySummary.otherStateRecords.filter(
-            record => record.status === 'discharged'
-          ).length;
-          const otherStateDeathNumber = todaySummary.otherStateRecords.filter(
-            record => record.status === 'death'
-          ).length;
+          const otherStateTotalNumber = todaySummary.otherStateNumber.all;
+          const otherStateActiveNumber = todaySummary.otherStateNumber.active;
+          const otherStateRecoverNumber = todaySummary.otherStateNumber.discharged;
+          const otherStateDeathNumber = todaySummary.otherStateNumber.death;
+
           return (
             <Table.Body>
               <Table.Row textAlign='center'>
@@ -67,8 +61,8 @@ export const AusSummary = ({ id, data }) => {
                   {otherStateActiveNumber !== 0 && <>*</>}
                 </Table.Cell>
                 <Table.Cell>
-                  <strong>{todaySummary.totalConfirmedNumber - otherStateNumber}
-                  {otherStateNumber !== 0 && <>*</>}</strong>
+                  <strong>{todaySummary.totalConfirmedNumber - otherStateTotalNumber}
+                  {otherStateTotalNumber !== 0 && <>*</>}</strong>
                   {todaySummary.todayNewNumber !== 0 && <>(+
                   {todaySummary.todayNewNumber})</>}
                 </Table.Cell>
