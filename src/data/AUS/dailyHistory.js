@@ -1,165 +1,5 @@
 export const dailyHistorys = [
   {
-    date: 'Jan 23, 2020',
-    totalConfirmedNumber: 1,
-    totalRecoveredNumber: 1,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 1,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Jan 25, 2020',
-    totalConfirmedNumber: 4,
-    totalRecoveredNumber: 4,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 3,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Jan 27, 2020',
-    totalConfirmedNumber: 5,
-    totalRecoveredNumber: 5,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 1,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Jan 29, 2020',
-    totalConfirmedNumber: 7,
-    totalRecoveredNumber: 7,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 2,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Jan 30, 2020',
-    totalConfirmedNumber: 9,
-    totalRecoveredNumber: 9,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 2,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Feb 01, 2020',
-    totalConfirmedNumber: 10,
-    totalRecoveredNumber: 10,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 1,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Feb 02, 2020',
-    totalConfirmedNumber: 12,
-    totalRecoveredNumber: 12,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 2,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Feb 04, 2020',
-    totalConfirmedNumber: 13,
-    totalRecoveredNumber: 13,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 1,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Feb 05, 2020',
-    totalConfirmedNumber: 14,
-    totalRecoveredNumber: 14,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 1,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
-    date: 'Feb 06, 2020',
-    totalConfirmedNumber: 15,
-    totalRecoveredNumber: 15,
-    totalDeathNumber: 0,
-    totalRemianNumber: 0,
-    todayNewNumber: 1,
-    otherStateNumber: {
-      all: 0,
-      active: 0,
-      death: 0,
-      discharged: 0
-    },
-    hide: true,
-    hasOtherState: false
-  },
-  {
     date: 'Feb 22, 2020',
     totalConfirmedNumber: 17,
     totalRecoveredNumber: 16,
@@ -353,10 +193,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 10, 2020',
-    totalConfirmedNumber: 113,
+    totalConfirmedNumber: 111,
     totalRecoveredNumber: 27,
     totalDeathNumber: 3,
-    totalRemianNumber: 83,
+    totalRemianNumber: 81,
     todayNewNumber: 21,
     otherStateNumber: {
       all: 2,
@@ -369,10 +209,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 11, 2020',
-    totalConfirmedNumber: 133,
+    totalConfirmedNumber: 131,
     totalRecoveredNumber: 27,
     totalDeathNumber: 3,
-    totalRemianNumber: 103,
+    totalRemianNumber: 101,
     todayNewNumber: 20,
     otherStateNumber: {
       all: 2,
@@ -385,10 +225,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 12, 2020',
-    totalConfirmedNumber: 158,
+    totalConfirmedNumber: 156,
     totalRecoveredNumber: 27,
     totalDeathNumber: 4,
-    totalRemianNumber: 127,
+    totalRemianNumber: 125,
     todayNewNumber: 25,
     otherStateNumber: {
       all: 2,
@@ -401,10 +241,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 13, 2020',
-    totalConfirmedNumber: 199,
+    totalConfirmedNumber: 197,
     totalRecoveredNumber: 27,
     totalDeathNumber: 4,
-    totalRemianNumber: 168,
+    totalRemianNumber: 166,
     todayNewNumber: 41,
     otherStateNumber: {
       all: 2,
@@ -417,10 +257,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 14, 2020',
-    totalConfirmedNumber: 251,
+    totalConfirmedNumber: 249,
     totalRecoveredNumber: 27,
     totalDeathNumber: 4,
-    totalRemianNumber: 220,
+    totalRemianNumber: 218,
     todayNewNumber: 52,
     otherStateNumber: {
       all: 2,
@@ -433,10 +273,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 15, 2020',
-    totalConfirmedNumber: 300,
+    totalConfirmedNumber: 298,
     totalRecoveredNumber: 27,
     totalDeathNumber: 4,
-    totalRemianNumber: 269,
+    totalRemianNumber: 267,
     todayNewNumber: 49,
     otherStateNumber: {
       all: 2,
@@ -449,10 +289,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 16, 2020',
-    totalConfirmedNumber: 378,
+    totalConfirmedNumber: 375,
     totalRecoveredNumber: 27,
-    totalDeathNumber: 7,
-    totalRemianNumber: 344,
+    totalDeathNumber: 6,
+    totalRemianNumber: 342,
     todayNewNumber: 78,
     otherStateNumber: {
       all: 3,
@@ -465,10 +305,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 17, 2020',
-    totalConfirmedNumber: 455,
+    totalConfirmedNumber: 452,
     totalRecoveredNumber: 27,
-    totalDeathNumber: 7,
-    totalRemianNumber: 421,
+    totalDeathNumber: 6,
+    totalRemianNumber: 419,
     todayNewNumber: 77,
     otherStateNumber: {
       all: 3,
@@ -481,10 +321,10 @@ export const dailyHistorys = [
   },
   {
     date: 'Mar 18, 2020',
-    totalConfirmedNumber: 568,
+    totalConfirmedNumber: 565,
     totalRecoveredNumber: 27,
-    totalDeathNumber: 7,
-    totalRemianNumber: 534,
+    totalDeathNumber: 6,
+    totalRemianNumber: 532,
     todayNewNumber: 113,
     otherStateNumber: {
       all: 3,
