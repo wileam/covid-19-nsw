@@ -41,58 +41,58 @@ export const predicts = [
   },
   {
     date: 'Mar 08, 2020',
-    predictedTotalConfirmedNumber: 80
+    predictedTotalConfirmedNumber: 79
   },
   {
     date: 'Mar 09, 2020',
-    predictedTotalConfirmedNumber: 96
+    predictedTotalConfirmedNumber: 95
   },
   {
     date: 'Mar 10, 2020',
-    predictedTotalConfirmedNumber: 115
+    predictedTotalConfirmedNumber: 114
   },
   {
     date: 'Mar 11, 2020',
-    predictedTotalConfirmedNumber: 139
+    predictedTotalConfirmedNumber: 137
   },
   {
     date: 'Mar 12, 2020',
-    predictedTotalConfirmedNumber: 168
+    predictedTotalConfirmedNumber: 167
   },
   {
     date: 'Mar 13, 2020',
-    predictedTotalConfirmedNumber: 204
+    predictedTotalConfirmedNumber: 203
   },
   {
     date: 'Mar 14, 2020',
-    predictedTotalConfirmedNumber: 249
+    predictedTotalConfirmedNumber: 247
   },
   {
     date: 'Mar 15, 2020',
-    predictedTotalConfirmedNumber: 305
+    predictedTotalConfirmedNumber: 302
   },
   {
     date: 'Mar 16, 2020',
-    predictedTotalConfirmedNumber: 373
+    predictedTotalConfirmedNumber: 370
   },
   {
     date: 'Mar 17, 2020',
-    predictedTotalConfirmedNumber: 458
+    predictedTotalConfirmedNumber: 455
   },
   {
     date: 'Mar 18, 2020',
-    predictedTotalConfirmedNumber: 562
+    predictedTotalConfirmedNumber: 559
   },
   {
     date: 'Mar 19, 2020',
-    predictedTotalConfirmedNumber: 691
+    predictedTotalConfirmedNumber: 688
   },
   {
     date: 'Mar 20, 2020',
-    predictedTotalConfirmedNumber: 851
+    predictedTotalConfirmedNumber: 847
   },
   {
     date: 'Mar 21, 2020',
-    predictedTotalConfirmedNumber: 1048
+    predictedTotalConfirmedNumber: 1044
   }
 ];

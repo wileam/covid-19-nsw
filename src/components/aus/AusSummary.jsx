@@ -3,7 +3,6 @@ import React from 'react';
 import { Grid, Statistic, Table } from 'semantic-ui-react';
 import { default as states } from '../../states.json';
 
-
 export const AusSummary = ({ id, data }) => {
   const {
     totalConfirmedNumber,
@@ -11,7 +10,6 @@ export const AusSummary = ({ id, data }) => {
     totalDeathNumber,
     totalRemianNumber,
     todayNewNumber,
-    otherStateNumber
   } = data[id].todaySummarys;
   return (
     <div className='summary'>
@@ -21,7 +19,7 @@ export const AusSummary = ({ id, data }) => {
           <Statistic
             color='blue'
             label='Active'
-            value={totalRemianNumber - otherStateNumber.active}
+            value={totalRemianNumber}
           />
         </Grid.Column>
         <Grid.Column>
@@ -31,21 +29,21 @@ export const AusSummary = ({ id, data }) => {
           <Statistic
             color='red'
             label='Total'
-            value={totalConfirmedNumber - otherStateNumber.all}
+            value={totalConfirmedNumber}
           />
         </Grid.Column>
         <Grid.Column>
           <Statistic
             color='grey'
             label='Death'
-            value={totalDeathNumber - otherStateNumber.death}
+            value={totalDeathNumber}
           />
         </Grid.Column>
         <Grid.Column>
           <Statistic
             color='green'
             label='Recovered'
-            value={totalRecoveredNumber - otherStateNumber.discharged}
+            value={totalRecoveredNumber}
           />
         </Grid.Column>
       </Grid>
