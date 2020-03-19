@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.d9c409aa.chunk.css",
-    "main.js": "/static/js/main.73809818.chunk.js",
+    "main.js": "/static/js/main.f252469a.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.7e1ab7e3.js",
     "static/css/2.bfb4d223.chunk.css": "/static/css/2.bfb4d223.chunk.css",
     "static/js/2.c263c435.chunk.js": "/static/js/2.c263c435.chunk.js",
     "index.html": "/index.html",
-    "precache-manifest.ccfb4cf4bce68f020b63eb6321893fd7.js": "/precache-manifest.ccfb4cf4bce68f020b63eb6321893fd7.js",
+    "precache-manifest.e1a87507e015e32f023847dbcf6a530e.js": "/precache-manifest.e1a87507e015e32f023847dbcf6a530e.js",
     "service-worker.js": "/service-worker.js",
     "static/js/2.c263c435.chunk.js.LICENSE.txt": "/static/js/2.c263c435.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff",
@@ -17,6 +17,6 @@
     "static/css/2.bfb4d223.chunk.css",
     "static/js/2.c263c435.chunk.js",
     "static/css/main.d9c409aa.chunk.css",
-    "static/js/main.73809818.chunk.js"
+    "static/js/main.f252469a.chunk.js"
   ]
 }
