@@ -5,8 +5,8 @@ const ExpReg = require('exponential-regression').ExpReg;
 const stateModelMapping = {
   AUS: 'ER',
   NSW: 'ER',
-  VIC: 'PR',
-  QLD: 'PR',
+  VIC: 'ER',
+  QLD: 'ER',
   WA: 'PR',
   SA: 'PR',
   TAS: 'PR',

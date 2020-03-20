@@ -2,19 +2,27 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 
 const getOptions = statistics => {
-  let totalConfirmed = [],
-    wip = [],
-    excluded = [],
-    totalTested = [];
+  let data = {};
+  let keys = [];
+  let series = [];
   for (let i = 0; i < statistics.length; i++) {
-    const data = statistics[i];
-    const date = new Date(data.Date);
-
-    totalConfirmed.push([date, data.confirmed]);
-    wip.push([date, data['under investigation']]);
-    excluded.push([date, data.excluded]);
-    totalTested.push([date, data['total tested']]);
+    const statistic = statistics[i];
+    for (const key in statistic) {
+      if (statistic.hasOwnProperty(key) && typeof statistic[key] === 'number') {
+        if (!data[key]) {
+          data[key] = [];
+        }
+        keys.push(key);
+        data[key].push([new Date(statistic.Date), statistic[key]]);
+      }
+    }
   }
+
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    series.push({ type: 'line', name: key, data: data[key] });
+  }
+
   return {
     legend: {
       show: true
@@ -36,16 +44,7 @@ const getOptions = statistics => {
         }
       }
     },
-    series: [
-      {
-        type: 'line',
-        name: 'total confirmed',
-        data: totalConfirmed
-      },
-      { type: 'line', name: 'under investigation', data: wip },
-      { type: 'line', name: 'tested and excluded', data: excluded },
-      { type: 'line', name: 'total tested', data: totalTested }
-    ]
+    series
   };
 };
 

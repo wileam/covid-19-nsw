@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid, Statistic, Table } from 'semantic-ui-react';
+import { Grid, Statistic, Table, List } from 'semantic-ui-react';
 import './index.scss';
 
 const SOURCE_BY_STATE = {
   NSW: 'https://www.health.nsw.gov.au/news/pages/2020-nsw-health.aspx',
-  VIC: 'https://www2.health.vic.gov.au/about/media-centre/MediaReleases/',
+  VIC: 'https://www.dhhs.vic.gov.au/media-hub-coronavirus-disease-covid-19',
   QLD: 'https://www.health.qld.gov.au/news-events/doh-media-releases',
   WA:
     'https://ww2.health.wa.gov.au/~/media/Files/Corporate/general%20documents/Infectious%20diseases/PDF/Coronavirus/COVID19-daily-snapshot.pdf',
@@ -14,6 +14,11 @@ const SOURCE_BY_STATE = {
   TAS: 'https://www.dhhs.tas.gov.au/news/2020',
   ACT:
     'https://www.health.act.gov.au/public-health-alert/updated-information-about-covid-19'
+};
+
+const FLIGHTS_BY_STATE = {
+  NSW:
+    'https://www.health.nsw.gov.au/Infectious/diseases/Pages/coronavirus-flights.aspx',
 };
 
 export const Summary = ({ id, todaySummarys, statistics }) => {
@@ -86,25 +91,43 @@ export const Summary = ({ id, todaySummarys, statistics }) => {
           </Table.Footer>
         )}
       </Table>
-      <p>
-        Data source:{' '}
-        <a href={SOURCE_BY_STATE[id]} target='_blank' rel='noopener noreferrer'>
-          {id} Health
-        </a>
-      </p>
-      {otherStateNumber.all !== 0 && (
-        <>
-          <p className='ui small'>
-            {otherStateNumber.all}{' '}
-            {otherStateNumber.all === 1 ? (
-              <>case is other state's resident</>
-            ) : (
-              <>cases are other state's residents</>
-            )}
-            , count in their number in national data.
-          </p>
-        </>
-      )}
+      <List bulleted>
+        <List.Item>
+          Data source:{' '}
+          <a
+            href={SOURCE_BY_STATE[id]}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {id} Health
+          </a>
+        </List.Item>
+        {FLIGHTS_BY_STATE[id] && (
+          <List.Item>
+            <a
+              href={FLIGHTS_BY_STATE[id]}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              {id} - Known flights with confirmed cases
+            </a>
+          </List.Item>
+        )}
+        
+          {otherStateNumber.all !== 0 && (
+            <List.Item>
+              <strong className='ui small'>
+                * {otherStateNumber.all}{' '}
+                {otherStateNumber.all === 1 ? (
+                  <>case is other state's resident</>
+                ) : (
+                  <>cases are other state's residents</>
+                )}
+                , count in their number in national data.
+              </strong>
+              </List.Item>
+          )}       
+      </List>
     </div>
   );
 };

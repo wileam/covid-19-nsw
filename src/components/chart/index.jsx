@@ -8,25 +8,28 @@ export const Chart = ({ id, dailyHistorys, predicts, source, statistics }) => (
   <>
     <h2 className='ui small header'>Trending:</h2>
     <Grid columns='equal' stackable>
-      <Grid.Column>
-        <DailyConfirmedChart
-          id={id}
-          dailyHistorys={dailyHistorys}
-          predicts={predicts}
-        />
-      </Grid.Column>
-
-      {source && (
+      <Grid.Row>
         <Grid.Column>
-          <SourcePieChart source={source} />
+          <DailyConfirmedChart
+            id={id}
+            dailyHistorys={dailyHistorys}
+            predicts={predicts}
+          />
         </Grid.Column>
-      )}
+      </Grid.Row>
+      <Grid.Row>
+        {source && (
+          <Grid.Column>
+            <SourcePieChart source={source} />
+          </Grid.Column>
+        )}
 
-      {(statistics && statistics.length >= 5) && (
-        <Grid.Column>
-          <StatisticsChart statistics={statistics} />
-        </Grid.Column>
-      )}
+        {statistics && statistics.length >= 5 && (
+          <Grid.Column>
+            <StatisticsChart statistics={statistics} />
+          </Grid.Column>
+        )}
+      </Grid.Row>
     </Grid>
   </>
 );
