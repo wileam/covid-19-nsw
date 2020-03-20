@@ -72,7 +72,8 @@ function getDataById(id) {
     return {
       ...data[id],
       source: data.source.filter(d => d.State === id)[0],
-      statistics: data.statistics.filter(d => d.State === id)
+      statistics: data.statistics.filter(d => d.State === id),
+      sponsors: data.sponsors
     };
   }
 }
@@ -112,7 +113,7 @@ function Child({ id }) {
 
       {id !== 'AUS' && <DetailTable id={id} />}
 
-      <Footer sponsor={{ AUD: 42, CNY: 290.66 }} />
+      <Footer sponsors={data.sponsors} />
 
       <Divider />
 
