@@ -112,7 +112,7 @@ function Child({ id }) {
 
       {id !== 'AUS' && <DetailTable id={id} />}
 
-      <Footer />
+      <Footer sponsor={{ AUD: 42, CNY: 290.66 }} />
 
       <Divider />
 

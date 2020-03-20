@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 
-const getOptions = (id, dailyHistorys, predicts) => {
+const getOptions = (dailyHistorys, predicts) => {
   let todayData = dailyHistorys.map(({ date, todayNewNumber }) => [
     new Date(date),
     todayNewNumber
@@ -20,7 +20,7 @@ const getOptions = (id, dailyHistorys, predicts) => {
       selected: {
         total: true,
         'predicted total': false,
-        'new cases on the day': true
+        'new': true
       }
     },
     tooltip: {
@@ -65,7 +65,7 @@ const getOptions = (id, dailyHistorys, predicts) => {
       },
       {
         type: 'bar',
-        name: 'new cases on the day',
+        name: 'new',
         data: todayData,
         itemStyle: {
           normal: {
@@ -80,8 +80,8 @@ const getOptions = (id, dailyHistorys, predicts) => {
   };
 };
 
-export const DailyConfirmedChart = ({ id, dailyHistorys, predicts }) => (
+export const DailyConfirmedChart = ({ dailyHistorys, predicts }) => (
   <>
-    <ReactEcharts option={getOptions(id, dailyHistorys, predicts)} />
+    <ReactEcharts option={getOptions(dailyHistorys, predicts)} />
   </>
 );

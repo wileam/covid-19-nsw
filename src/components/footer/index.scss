@@ -1,4 +1,22 @@
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100vw;
+  p {
+    line-height: 0.5rem;
+  }
+}
+
+.buy-coffee-modal.ui.modal {
+  width: 80%;
+}
+
 .bmc-button img {
   height: 17px !important;
   width: 17px !important;

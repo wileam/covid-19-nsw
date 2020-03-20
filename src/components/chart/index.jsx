@@ -7,6 +7,7 @@ import { SourcePieChart } from './SourcePieChart';
 export const Chart = ({ id, dailyHistorys, predicts, source, statistics }) => (
   <>
     <h2 className='ui small header'>Trending:</h2>
+    <small>Click label to show/hide series:</small>
     <Grid columns='equal' stackable>
       <Grid.Row>
         <Grid.Column>

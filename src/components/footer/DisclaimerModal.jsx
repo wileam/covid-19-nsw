@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, List } from 'semantic-ui-react';
 
 export const DisclaimerModal = () => (
-  <Modal
+  <Modal closeIcon
     trigger={
       // eslint-disable-next-line
       <a href='#' onClick={e => e.preventDefault()}>

@@ -4,11 +4,11 @@ import { DisclaimerModal } from './DisclaimerModal';
 import { BuyCoffeeModal } from './BuyCoffeeModal';
 import './index.scss';
 
-export const Footer = () => (
+export const Footer = ({sponsor}) => (
   <footer>
     <p>
         If you found this site helpful, consider{' '}
-        <BuyCoffeeModal />
+        <BuyCoffeeModal sponsor={sponsor}/>
     </p>
     <p>
       <small>

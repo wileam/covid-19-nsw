@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, List, Header } from 'semantic-ui-react';
 
 export const AuthorModal = () => (
-  <Modal
+  <Modal closeIcon
     trigger={
       // eslint-disable-next-line
       <a href='#' onClick={e => e.preventDefault()}>
@@ -47,11 +47,14 @@ export const AuthorModal = () => (
         <Header>Contact</Header>
         <List bulleted>
           <List.Item>
-          Join telegram group{' '}
-            <a href='https://t.me/covid_19_au'>@covid_19_au</a>
+            Email: <a href='mailto: joanna_wu@live.com'>joanna_wu@live.com</a>
           </List.Item>
           <List.Item>
-            Email: <a href='mailto: joanna_wu@live.com'>joanna_wu@live.com</a>
+            Twitter: <a href="https://twitter.com/wileam">@wileam</a>
+          </List.Item>
+          <List.Item>
+          Join telegram group{' '}
+            <a href='https://t.me/covid_19_au'>@covid_19_au</a>
           </List.Item>
         </List>
       </Modal.Description>

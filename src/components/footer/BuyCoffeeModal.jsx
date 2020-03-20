@@ -1,8 +1,8 @@
 import React from 'react';
-import { Modal, Grid } from 'semantic-ui-react';
+import { Modal, Grid, Divider } from 'semantic-ui-react';
 
-export const BuyCoffeeModal = () => (
-  <Modal
+export const BuyCoffeeModal = ({sponsor}) => (
+  <Modal className='buy-coffee-modal' closeIcon
     trigger={
       // eslint-disable-next-line
       <a className='bmc-button' href='#' onClick={e => e.preventDefault()}>
@@ -47,6 +47,10 @@ export const BuyCoffeeModal = () => (
             >
               Paypal or card
             </a>
+          </Grid.Row>
+          <Divider />
+          <Grid.Row>
+            <p>Thank you for your support, so far we got {sponsor.AUD} AUD and {sponsor.CNY} CNY, details see: <a target="_blank" rel="noopener noreferrer" href="https://airtable.com/shrZ0h28K3ENwWfvc">sponsor list</a></p>
           </Grid.Row>
         </Grid>
       </Modal.Description>
