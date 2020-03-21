@@ -8,8 +8,6 @@ if [[ -n $CI ]]; then
 
   echo "fetching fetchTables data..."
   ./bin/tables/fetchTables.js
-  echo "fetching fetchSponsors data..."
-  ./bin/tables/fetchSponsorTables.js
   echo "fetching fetchAirtable data..."
   ./bin/fetchAirtable.js
 else
