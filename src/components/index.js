@@ -4,3 +4,5 @@ export * from './table';
 export * from './footer';
 export * from './share';
 export * from './aus';
+export * from './feed';
+export * from './update';

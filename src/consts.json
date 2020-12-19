@@ -11,5 +11,6 @@
   "OTHER_STATE_RESIDENT": "other state's resident",
   "SUBURB": "Suburb",
   "GENDER": "Gender",
-  "AGE": "Age"
+  "AGE": "Age",
+  "REPLICATE": "Replicate"
 }

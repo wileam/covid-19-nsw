@@ -1,21 +1,53 @@
 import React from 'react';
-import { DailyConfirmedChart } from '../chart/DailyConfirmedChart';
 import { AusSummary } from './AusSummary';
+import { TotalChart } from '../chart/trend/TotalChart';
+import { DailyChart } from '../chart/trend/DailyChart';
 import './index.scss';
-import { Divider } from 'semantic-ui-react';
+import { Header, Segment } from 'semantic-ui-react';
+import { StatesTotalTrendingChart } from './StatesTotalTrendingChart';
 
-export const AusPage = ({ id, data }) => {
+export const AusPage = ({ pageId, data, active, setActive }) => {
+  let dailyData = data[pageId].dailyHistorys.map(({ date, newConfirmed }) => {
+    return [new Date(date), newConfirmed];
+  });
+  let totalData = data[pageId].dailyHistorys.map(({ date, totalConfirmed }) => [
+    new Date(date),
+    totalConfirmed
+  ]);
+  let predictData = data[
+    pageId
+  ].predicts.map(({ date, predictedTotalConfirmed }) => [
+    new Date(date),
+    predictedTotalConfirmed
+  ]);
   return (
     <>
-      <AusSummary id={id} data={data} />
-      <Divider />
-      <h2 className='ui small header'>Trending:</h2>
-      <small>Click label to show/hide series:</small>
-      <DailyConfirmedChart
-        id={id}
-        dailyHistorys={data[id].dailyHistorys}
-        predicts={data[id].predicts}
+      <AusSummary
+        pageId={pageId}
+        data={data}
+        active={active}
+        setActive={setActive}
       />
+      <Segment>
+        {
+          // eslint-disable-next-line
+          <a id='trending' className='target'></a>
+        }
+        <Header>Trending: </Header>
+        <small>
+          * Click label to show/hide series, hover/touch point to see detail
+          tooltip.
+        </small>
+        <TotalChart
+          pageId={pageId}
+          totalData={totalData}
+          predictData={predictData}
+        />
+
+        <DailyChart pageId={pageId} dailyData={dailyData} />
+
+        <StatesTotalTrendingChart pageId={pageId} data={data} />
+      </Segment>
     </>
   );
 };

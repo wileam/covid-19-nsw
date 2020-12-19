@@ -1,36 +1,70 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
-import { DailyConfirmedChart } from './DailyConfirmedChart';
-import { StatisticsChart } from './StatisticsChart';
-import { SourcePieChart } from './SourcePieChart';
+import echarts from 'echarts';
+import { theme } from './theme/custom';
+import { Location } from './location';
+import { Trend } from './trend';
+import { Source } from './source';
+import { Age } from './age';
+import { Tested } from './tested';
 
-export const Chart = ({ id, dailyHistorys, predicts, source, statistics }) => (
-  <>
-    <h2 className='ui small header'>Trending:</h2>
-    <small>Click label to show/hide series:</small>
-    <Grid columns='equal' stackable>
-      <Grid.Row>
-        <Grid.Column>
-          <DailyConfirmedChart
-            id={id}
-            dailyHistorys={dailyHistorys}
-            predicts={predicts}
-          />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        {source && (
-          <Grid.Column>
-            <SourcePieChart source={source} />
-          </Grid.Column>
-        )}
+// register theme object
+echarts.registerTheme('custom_theme', theme);
 
-        {statistics && statistics.length >= 5 && (
-          <Grid.Column>
-            <StatisticsChart statistics={statistics} />
-          </Grid.Column>
-        )}
-      </Grid.Row>
-    </Grid>
-  </>
-);
+export const Chart = ({ pageId, data }) => {
+  let {
+    dailyHistorys,
+    predicts,
+    source,
+    statistics,
+    age,
+    location,
+    totalTestedReport,
+    confirmedCasesByLocationAndSource,
+    suburbMapping
+  } = data;
+  let dailyData = dailyHistorys.map(({ date, newConfirmed }) => [
+    new Date(date),
+    newConfirmed
+  ]);
+  let totalData = dailyHistorys.map(({ date, totalConfirmed }) => [
+    new Date(date),
+    totalConfirmed
+  ]);
+  let predictData = predicts.map(({ date, predictedTotalConfirmed }) => [
+    new Date(date),
+    predictedTotalConfirmed
+  ]);
+
+  return (
+    <div>
+      {
+        // eslint-disable-next-line
+        <a id='trending' className='target'></a>
+      }
+      <Trend
+        pageId={pageId}
+        totalData={totalData}
+        predictData={predictData}
+        dailyData={dailyData}
+      />
+      {((pageId === 'NSW' && confirmedCasesByLocationAndSource) ||
+        (source && source[0])) && (
+        <Source
+          pageId={pageId}
+          source={source}
+          confirmedCasesByLocationAndSource={confirmedCasesByLocationAndSource}
+        />
+      )}
+      {pageId === 'NSW' && totalTestedReport && (
+        <Location
+          pageId={pageId}
+          location={location}
+          totalTestedReport={totalTestedReport}
+          suburbMapping={suburbMapping}
+        />
+      )}
+      <Tested pageId={pageId} statistics={statistics} />
+      {age && age[0] && <Age pageId={pageId} age={age} />}
+    </div>
+  );
+};

@@ -6,11 +6,11 @@ export const ShareButton = () => {
   const url = `https://covid-19.wileam.com/`;
   return (
     <Responsive {...Responsive.onlyComputer}>
-      <p style={{textAlign: 'right'}}>
+      <div style={{ textAlign: 'right' }}>
         Share the page:
         <Facebook link={url} />
         <Twitter link={url} />
-      </p>
+      </div>
     </Responsive>
   );
 };

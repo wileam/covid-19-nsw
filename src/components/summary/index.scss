@@ -9,6 +9,14 @@
   }
   .ui.statistic > .value,
   .ui.statistics .statistic > .value {
-    font-size: 3rem !important;
+    font-size: 2rem !important;
+  }
+  .new-number {
+    &::before {
+      content: '(';
+    }
+    &::after {
+      content: ')';
+    }
   }
 }

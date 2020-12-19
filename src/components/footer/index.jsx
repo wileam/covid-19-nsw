@@ -2,11 +2,17 @@ import React from 'react';
 import { AuthorModal } from './AuthorModal';
 import { DisclaimerModal } from './DisclaimerModal';
 import { BuyCoffeeModal } from './BuyCoffeeModal';
+import { ShareModal } from './ShareModal';
 import './index.scss';
+import { getToggle, TOGGLES } from '../../toggles';
 
-const filterByCurrency = (data, currency) => {
-  return data.filter(d => d.Currency === currency).map(d => d.Amount).reduce((a,b) => a + b).toFixed(2)
-}
+// const filterByCurrency = (data, currency) => {
+//   return data
+//     .filter(d => d.Currency === currency)
+//     .map(d => d.Amount)
+//     .reduce((a, b) => a + b)
+//     .toFixed(2);
+// };
 
 // {
 //   "Name": "Dat",
@@ -16,16 +22,20 @@ const filterByCurrency = (data, currency) => {
 //   "Comments": "Thanks you for making the covid19 chart.",
 //   "Currency": "AUD"
 // }
-export const Footer = ({sponsors}) => {  
-  const sponsorSummary = {
-    AUD: filterByCurrency(sponsors, 'AUD'),
-    CNY: filterByCurrency(sponsors, 'CNY')
-  }
+export const Footer = ({ pageId }) => {
+  // const sponsorSummary = {
+  //   AUD: filterByCurrency(sponsors, 'AUD'),
+  //   CNY: filterByCurrency(sponsors, 'CNY')
+  // };
   return (
-    <footer>
+    <footer className='ui container'>
       <p>
-          If you found this site helpful, consider{' '}
-          <BuyCoffeeModal sponsor={sponsorSummary}/>
+        {getToggle(TOGGLES.SHOW_SHARE) ? (
+          <ShareModal pageId={pageId} />
+        ) : (
+          <small>If you found this site helpful, consider</small>
+        )}
+        <BuyCoffeeModal />
       </p>
       <p>
         <small>
@@ -33,5 +43,5 @@ export const Footer = ({sponsors}) => {
         </small>
       </p>
     </footer>
-  )
+  );
 };
